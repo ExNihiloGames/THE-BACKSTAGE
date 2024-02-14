@@ -15,6 +15,7 @@ public class CharacterTrait : ScriptableObject
 
     private void OnEnable()
     {
+        Debug.Log($"ComputeWeights for {this.name}");
         effectsTable.ComputeWeights();
     }
 }

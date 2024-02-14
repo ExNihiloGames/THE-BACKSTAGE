@@ -1,15 +1,14 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
-using static UnityEngine.GraphicsBuffer;
 
 public class CharacterQueue : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] AbstractCharacterGenerator characterGenerator;
     Queue<Character> queue = new Queue<Character>();
+
 #if UNITY_EDITOR
     [Space]
     [Header("Debug")]
@@ -17,6 +16,8 @@ public class CharacterQueue : MonoBehaviour
     [SerializeField] int debugValidated;
     [SerializeField] int debugRefused;
 #endif
+
+    public static Action<Character> characterShowUp;
 
     public void GenerateQueue(int count = 500)
     {
@@ -39,22 +40,46 @@ public class CharacterQueue : MonoBehaviour
 #endif
     }
 
-    public void Validate()
+    private void OnEnable()
     {
-        queue.Dequeue();
-#if UNITY_EDITOR
-        debugQueueCount = queue.Count;
-        debugValidated++;
-#endif
+        AcceptRejectDebugPanel.accepted += OnAccept;
     }
 
-    public void Refuse()
+    private void OnDisable()
     {
+        AcceptRejectDebugPanel.accepted -= OnAccept;
+    }
+
+    private void Start()
+    {
+        GenerateQueue();
+        if (queue.TryPeek(out Character character))
+        {
+            characterShowUp?.Invoke(character);
+        }
+    }
+
+    void OnAccept(bool accept)
+    {
+        if (queue.Count == 0) return;
+
         queue.Dequeue();
+
 #if UNITY_EDITOR
         debugQueueCount = queue.Count;
-        debugRefused++;
+        if (accept)
+        {
+            debugValidated++;
+        }
+        else
+        {
+            debugRefused++;
+        }
 #endif
+        if (queue.TryPeek(out Character character))
+        {
+            characterShowUp?.Invoke(character);
+        }
     }
 }
 
@@ -69,14 +94,6 @@ public class MyScriptEditor : Editor
         if (GUILayout.Button("Generate"))
         {
             queue.GenerateQueue();
-        }
-        if (GUILayout.Button("Validate"))
-        {
-            queue.Validate();
-        }
-        if (GUILayout.Button("Refuse"))
-        {
-            queue.Refuse();
         }
     }
 }

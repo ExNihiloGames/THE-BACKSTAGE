@@ -1,35 +1,54 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class CharacterDebugPanel : MonoBehaviour
 {
-    [SerializeField] AbstractCharacterGenerator characterGenerator;
-    [SerializeField] TextMeshProUGUI nameText;
+    [SerializeField] TextMeshProUGUI firstNameText;
+    [SerializeField] TextMeshProUGUI lastNameText;
     [SerializeField] TextMeshProUGUI specieText;
     [SerializeField] TextMeshProUGUI traitText;
+    [SerializeField] TextMeshProUGUI dateOfBirthText;
+    [SerializeField] TextMeshProUGUI hasIDText;
+    [SerializeField] TextMeshProUGUI isIDValidText;
     [SerializeField] TextMeshProUGUI effectText;
 
     public void Display(Character character)
     {
-        nameText.text = character.name;
+        firstNameText.text = character.firstName;
+        lastNameText.text = character.lastName;
+
         specieText.text = character.characterSpecie.displayName;
         traitText.text = character.characterTrait.displayName;
+
+        dateOfBirthText.text = character.dateOfBirth.ToShortDateString();
+
+        hasIDText.text = character.hasID ? "Has ID" : "No ID";
+        isIDValidText.text = character.isIDValid ? "Valid" : "Invalid";
+
         string effect = "";
-        if (character.IsDrunk())
+        if (character.isDrunk)
         {
             effect += " Drunk";
         }
-        if (character.IsHigh())
+        if (character.isHigh)
         {
             effect += " High";
         }
         effectText.text = effect;
     }
 
-    private void Start()
+    private void OnEnable()
     {
-        Display(characterGenerator.Generate());
+        CharacterQueue.characterShowUp += OnCharacterShowUp;
+    }
+
+    private void OnDisable()
+    {
+        CharacterQueue.characterShowUp -= OnCharacterShowUp;
+    }
+
+    void OnCharacterShowUp(Character character)
+    {
+        Display(character);
     }
 }

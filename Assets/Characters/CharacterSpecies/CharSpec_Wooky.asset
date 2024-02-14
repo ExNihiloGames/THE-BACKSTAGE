@@ -13,3 +13,12 @@ MonoBehaviour:
   m_Name: CharSpec_Wooky
   m_EditorClassIdentifier: 
   displayName: Wooky
+  firstNameList:
+  - John
+  - Joe
+  - Joey
+  - Jenny
+  - Jean
+  - Josh
+  lastNameList: []
+  spriteList: []

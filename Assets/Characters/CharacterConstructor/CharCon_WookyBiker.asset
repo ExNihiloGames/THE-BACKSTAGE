@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7992e101dbacae44eaeee475c75eeee8, type: 3}
   m_Name: CharCon_WookyBiker
   m_EditorClassIdentifier: 
-  forceFullName: 0
-  fullName: 
   characterSpecie: {fileID: 11400000, guid: 9bc760dc4abfe254c9ae0ed68b7d85a5, type: 2}
-  characterTrait: {fileID: 11400000, guid: 6ad20da2624ffd646aa1a04c40846c80, type: 2}
+  characterTrait: {fileID: 11400000, guid: ef87914eeb1db3348b3d84329dfb224a, type: 2}
+  forceFullName: 0
+  firstName: 
+  lastName: 
+  forceID: 0
+  hasID: 0
+  isIDValid: 0
   forceEffects: 0
-  characterEffect: {fileID: 0}
+  characterEffect: 0
