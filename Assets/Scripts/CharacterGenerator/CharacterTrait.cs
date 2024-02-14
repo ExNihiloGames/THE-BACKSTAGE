@@ -2,12 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum CharacterTrait
+[CreateAssetMenu(fileName = "CharTrait_NEW", menuName = "Character/CharacterTrait", order = 1)]
+public class CharacterTrait : ScriptableObject
 {
-    Biker,
-    Rich,
-    Hipster,
-    Mafioso,
-    Babos,
-    Pervert
+    public string displayName;
+    public RandomTable<CharacterEffect> effectsTable;
+
+    public CharacterEffect GetRandomEffect()
+    {
+        return effectsTable.GetRandomObject();
+    }
+
+    private void OnEnable()
+    {
+        effectsTable.ComputeWeights();
+    }
 }

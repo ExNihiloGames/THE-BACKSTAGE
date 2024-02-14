@@ -7,6 +7,6 @@ public class RandomGenerator : AbstractCharacterGenerator
 {
     public override Character Generate()
     {
-        return new Character(null, 0);
+        return new Character(null, null);
     }
 }

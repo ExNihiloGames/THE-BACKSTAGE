@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "PseudoRandomCharacterGenerator", menuName = "CharacterGenerator/PseudoRandom", order = 1)]
+[CreateAssetMenu(fileName = "PRCharGen_New", menuName = "CharacterGenerator/PseudoRandom", order = 1)]
 public class PseudoRandomGenerator : AbstractCharacterGenerator
 {
     public List<CharacterConstructor> characterCreators = new List<CharacterConstructor>();

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "CharCon_NEW", menuName = "CharacterConstructor", order = 1)]
@@ -22,7 +20,7 @@ public class CharacterConstructor : AbstractCharacterGenerator
         }
         else
         {
-            return new Character(characterSpecie, characterTrait);
+            return new Character(characterSpecie, characterTrait, characterTrait.GetRandomEffect());
         }
     }
 }

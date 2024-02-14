@@ -3,8 +3,7 @@ using System.Text;
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName = "CharSpec_NEW", menuName = "Character/CharacterSpecie", order = 1)]
-
+[CreateAssetMenu(fileName = "CharSpec_NEW", menuName = "Character/CharacterSpecie", order = 0)]
 public class CharacterSpecie : ScriptableObject
 {
     public string displayName;

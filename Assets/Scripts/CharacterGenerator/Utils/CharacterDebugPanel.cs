@@ -15,7 +15,7 @@ public class CharacterDebugPanel : MonoBehaviour
     {
         nameText.text = character.name;
         specieText.text = character.characterSpecie.displayName;
-        traitText.text = character.characterTrait.ToString();
+        traitText.text = character.characterTrait.displayName;
         string effect = "";
         if (character.IsDrunk())
         {
