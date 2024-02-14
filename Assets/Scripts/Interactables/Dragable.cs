@@ -4,12 +4,13 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 
-public class Dragable : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
+public class Dragable : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
     [SerializeField] private Canvas canvas;
 
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
+    private Vector2 initAnchorPosition;
 
     private void Awake()
     {
@@ -17,28 +18,25 @@ public class Dragable : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         canvasGroup = GetComponent<CanvasGroup>();
     }
 
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        Debug.Log("PointerDown");
-    }
-
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("Drag begin");
         canvasGroup.alpha = .6f;
         canvasGroup.blocksRaycasts = false;
+        initAnchorPosition = rectTransform.anchoredPosition;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("Drag End");
         canvasGroup.alpha = 1f;
+        if (eventData.pointerEnter == null)
+        {
+            rectTransform.anchoredPosition = initAnchorPosition;
+        }
         canvasGroup.blocksRaycasts = true;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log("On Drag");
         rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
     }
 }
