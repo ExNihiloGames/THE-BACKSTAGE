@@ -6,8 +6,7 @@ using UnityEngine.EventSystems;
 
 public class Dragable : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
-    [SerializeField] private Canvas canvas;
-
+    private Canvas canvas;
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
     private Vector2 initAnchorPosition;
@@ -16,6 +15,7 @@ public class Dragable : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
     {
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
+        canvas = FindObjectOfType<Canvas>();
     }
 
     public void OnBeginDrag(PointerEventData eventData)
