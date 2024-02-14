@@ -42,7 +42,7 @@ public class DialogSystem : MonoBehaviour
             }
             else
             {
-                //gameObject.SetActive(false);
+                gameObject.SetActive(false);
                 currentLineIndex = 0;
                 Debug.Log("Fin des dialogues");
             }
