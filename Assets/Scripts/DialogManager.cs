@@ -12,21 +12,22 @@ public class DialogManager : MonoBehaviour
     private int bubblesDisplayed = 0;
     RectTransform panelRectTransform;
     private List<GameObject> listOfBubbles = new List<GameObject>();
-/*    private static GameManager _instance;
-    public static GameManager Instance { get { return _instance; } }
+    bool bubbleSide = false;
+    /*    private static GameManager _instance;
+        public static GameManager Instance { get { return _instance; } }
 
-    private void Awake()
-    {
-        if (_instance != null && _instance != this)
+        private void Awake()
         {
-            Destroy(gameObject);
+            if (_instance != null && _instance != this)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                _instance = this;
+            }
         }
-        else
-        {
-            _instance = this;
-        }
-    }
-*/
+    */
 
     // Tableau de lignes de dialogue à afficher
     private int currentLineIndex = 0;
@@ -36,6 +37,8 @@ public class DialogManager : MonoBehaviour
         "Ca va, et toi ?",
         "Ca va très bien merci !",
         "Cool !",
+        "Oui",
+        "Ca va très bien merci !Ca va très bien merci !Ca va très bien merci !",
         "Oui",
         "Ca va très bien merci !Ca va très bien merci !Ca va très bien merci !",
         "CoolCoolCool !"
@@ -68,17 +71,17 @@ public class DialogManager : MonoBehaviour
 
     void CreateNewBubble(string text = "")
     {
-        float marginBottom = 20;
+        float margin = 20;
         List<GameObject> bubblesToRemove = new List<GameObject>();
-
+        
         if(listOfBubbles.Count > 0)
         {
             foreach (GameObject aBubble in listOfBubbles)
             {
                 RectTransform aBubbleRectTransform = aBubble.GetComponent<RectTransform>();
-                aBubbleRectTransform.localPosition = new Vector3(aBubbleRectTransform.localPosition.x, aBubbleRectTransform.localPosition.y + aBubbleRectTransform.rect.height + marginBottom);
+                aBubbleRectTransform.localPosition = new Vector3(aBubbleRectTransform.localPosition.x, aBubbleRectTransform.localPosition.y + aBubbleRectTransform.rect.height + margin);
 
-                if (aBubbleRectTransform.localPosition.y > panelRectTransform.sizeDelta.y / 2)
+                if (aBubbleRectTransform.localPosition.y + margin * 2 > (panelRectTransform.sizeDelta.y / 2))
                 {
                     bubblesToRemove.Add(aBubble);
                 }
@@ -93,16 +96,32 @@ public class DialogManager : MonoBehaviour
 
         GameObject newBubble = Instantiate(BubbleBase, panelRectTransform.position, Quaternion.identity);
         listOfBubbles.Add(newBubble);
-        Debug.Log(listOfBubbles.Count);
         Bubble bubble = newBubble.GetComponent<Bubble>();
         bubble.SetText(text);
         RectTransform newBubbleRectTransform = newBubble.GetComponent<RectTransform>();
 
+        
         newBubbleRectTransform.SetParent(panelRectTransform); //On indique qui est le parent
         newBubbleRectTransform.position = panelRectTransform.position; //Panel
+
+        //gestion de la taille
         newBubbleRectTransform.localScale = new Vector3(1f,1f,1f); //dû à un bug de Unity on force le scale initial
-        newBubbleRectTransform.sizeDelta = new Vector2(panelRectTransform.sizeDelta.x, newBubbleRectTransform.sizeDelta.y);
-        
+        newBubbleRectTransform.sizeDelta = new Vector2(panelRectTransform.sizeDelta.x/1.8f, newBubbleRectTransform.sizeDelta.y); // taille: largeur du panneau,on garde la hauteur initiale
+
+        //gestion du coté
+        if (bubbleSide)
+        {
+            //gauche
+            newBubbleRectTransform.localPosition = new Vector2(((newBubbleRectTransform.sizeDelta.x - panelRectTransform.sizeDelta.x) / 2) + margin, ((newBubbleRectTransform.sizeDelta.y - panelRectTransform.sizeDelta.y) / 2) + margin);
+            bubbleSide = !bubbleSide;
+        }
+        else
+        {
+            //droite
+            newBubbleRectTransform.localPosition = new Vector2(((newBubbleRectTransform.sizeDelta.x * -1 + panelRectTransform.sizeDelta.x) / 2) - margin, ((newBubbleRectTransform.sizeDelta.y - panelRectTransform.sizeDelta.y) / 2) + margin);
+            bubbleSide = !bubbleSide;
+        }
+
         newBubble.name = "Bubble_" + ++bubblesDisplayed;
         newBubble.SetActive(true);
 
