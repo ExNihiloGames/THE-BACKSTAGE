@@ -2,6 +2,8 @@ using System;
 
 public class Character
 {
+    static float hasIDProbability = 0.85f; 
+
     public string firstName => m_firstName;
     private string m_firstName;
 
@@ -32,7 +34,7 @@ public class Character
         m_firstName = characterSpecie.GetRandomCharacterFirstName();
         m_lastName = characterSpecie.GetRandomCharacterLastName();
         m_dateOfBirth = new DateTime(2800, UnityEngine.Random.Range(1,13), UnityEngine.Random.Range(1, 30));
-        m_hasID = 
+        m_hasID = UnityEngine.Random.Range(0f, 1f) < 0.85f; 
         m_characterSpecie = characterSpecie;
         m_characterTrait = characterTrait;
         m_characterEffect = characterTrait.GetRandomEffect();
