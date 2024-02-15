@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class ItemSlot : MonoBehaviour, IDropHandler
 {
-    public Action<TestEquipmentType, bool> OnTestEquipmentRead;
+    public event Action<TestEquipmentType, bool> OnTestEquipmentRead;
     private bool testResult;
 
     public void OnDrop(PointerEventData eventData)
