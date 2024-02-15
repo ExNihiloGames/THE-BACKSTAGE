@@ -1,29 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ItemSlot : MonoBehaviour, IPointerDownHandler, IDropHandler
+public class ItemSlot : MonoBehaviour, IDropHandler
 {
-    public TestEquipmentType readEquipmentsOfType;
-    public GameObject TestEquipment;
-
-    private RectTransform rectTransform;
+    public Action<TestEquipmentType, bool> OnTestEquipmentRead;
     private bool testResult;
-
-    private void Start()
-    {
-        rectTransform = GetComponent<RectTransform>();
-    }
-
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        GameObject newTestEquipment = Instantiate(TestEquipment, rectTransform.anchoredPosition, Quaternion.identity);
-        RectTransform nT_Rect = newTestEquipment.GetComponent<RectTransform>();
-
-        nT_Rect.SetParent(rectTransform.parent);
-        nT_Rect.anchoredPosition= rectTransform.anchoredPosition;
-    }
 
     public void OnDrop(PointerEventData eventData)
     {
@@ -31,38 +15,22 @@ public class ItemSlot : MonoBehaviour, IPointerDownHandler, IDropHandler
         {
             if(eventData.pointerDrag.gameObject.GetComponent<TestingItem>() != null)
             {
-                if (eventData.pointerDrag.gameObject.GetComponent<TestingItem>().testEquipmentType == readEquipmentsOfType)
+                eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
+
+                TestEquipmentType itemInSlotType = eventData.pointerDrag.gameObject.GetComponent<TestingItem>().testEquipmentType;
+
+                switch (itemInSlotType)
                 {
-                    eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = rectTransform.anchoredPosition;
+                    case TestEquipmentType.Alcohol:
+                        testResult = eventData.pointerDrag.gameObject.GetComponent<TestingItem>().isDrunk;
+                        break;
 
-                    TestEquipmentType itemInSlotType = eventData.pointerDrag.gameObject.GetComponent<TestingItem>().testEquipmentType;
-
-                    switch (itemInSlotType)
-                    {
-                        case TestEquipmentType.Alcohol:
-                            testResult = eventData.pointerDrag.gameObject.GetComponent<TestingItem>().isDrunk;
-                            Debug.Log("Character is Drunk?" + testResult);
-                            break;
-
-                        case TestEquipmentType.Drugs:
-                            testResult = eventData.pointerDrag.gameObject.GetComponent<TestingItem>().isHigh;
-                            Debug.Log("Character is High?" + testResult);
-                            break;
-                    }
+                    case TestEquipmentType.Drugs:
+                        testResult = eventData.pointerDrag.gameObject.GetComponent<TestingItem>().isHigh;
+                        break;
                 }
-                else
-                {
-                    Debug.Log("Wrong Equipment Type !");
-                }
+                OnTestEquipmentRead?.Invoke(itemInSlotType, testResult);
             }
-            else
-            {
-                Debug.Log("Wrong Equipment Type !");
-            }
-        }
-        else
-        {
-            Debug.Log("Wrong Equipment Type !");
         }
     }
 }
