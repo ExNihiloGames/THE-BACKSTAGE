@@ -67,4 +67,10 @@ public class TestDialogBox : MonoBehaviour, IPointerDownHandler
         allDialogBubbles.Remove(bubbleToRemove);
         Destroy(bubbleToRemove);
     }
+
+    public void NewDialogBubble(bool whoTalks, string text = "")
+    {
+
+
+    }
 }
