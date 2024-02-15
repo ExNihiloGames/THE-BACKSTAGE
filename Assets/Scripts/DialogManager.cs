@@ -4,12 +4,29 @@ using System.Globalization;
 using UnityEngine;
 using UnityEngine.UIElements;
 using TMPro;
+using UnityEditor;
 
 public class DialogManager : MonoBehaviour
 {
     public GameObject BubbleBase; //Mettre la bulle qui sert de modèle depuis Unity
     private int bubblesDisplayed = 0;
     RectTransform panelRectTransform;
+    private List<GameObject> listOfBubbles = new List<GameObject>();
+/*    private static GameManager _instance;
+    public static GameManager Instance { get { return _instance; } }
+
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+    }
+*/
 
     // Tableau de lignes de dialogue à afficher
     private int currentLineIndex = 0;
@@ -18,7 +35,10 @@ public class DialogManager : MonoBehaviour
         "Salut, ça va ?",
         "Ca va, et toi ?",
         "Ca va très bien merci !",
-        "Cool !"
+        "Cool !",
+        "Oui",
+        "Ca va très bien merci !Ca va très bien merci !Ca va très bien merci !",
+        "CoolCoolCool !"
     };
 
     void Start()
@@ -48,9 +68,32 @@ public class DialogManager : MonoBehaviour
 
     void CreateNewBubble(string text = "")
     {
-        Debug.Log("Creating New Bubble");
+        float marginBottom = 20;
+        List<GameObject> bubblesToRemove = new List<GameObject>();
+
+        if(listOfBubbles.Count > 0)
+        {
+            foreach (GameObject aBubble in listOfBubbles)
+            {
+                RectTransform aBubbleRectTransform = aBubble.GetComponent<RectTransform>();
+                aBubbleRectTransform.localPosition = new Vector3(aBubbleRectTransform.localPosition.x, aBubbleRectTransform.localPosition.y + aBubbleRectTransform.rect.height + marginBottom);
+
+                if (aBubbleRectTransform.localPosition.y > panelRectTransform.sizeDelta.y / 2)
+                {
+                    bubblesToRemove.Add(aBubble);
+                }
+            }
+
+            foreach (GameObject aBubble in bubblesToRemove)
+            {
+                listOfBubbles.Remove(aBubble);
+                Destroy(aBubble);
+            }
+        }
 
         GameObject newBubble = Instantiate(BubbleBase, panelRectTransform.position, Quaternion.identity);
+        listOfBubbles.Add(newBubble);
+        Debug.Log(listOfBubbles.Count);
         Bubble bubble = newBubble.GetComponent<Bubble>();
         bubble.SetText(text);
         RectTransform newBubbleRectTransform = newBubble.GetComponent<RectTransform>();
