@@ -10,7 +10,6 @@ public class TestDialogBox : MonoBehaviour, IPointerDownHandler
 
     RectTransform rectTransform;
     List<GameObject> allDialogBubbles;
-    GameObject toDestroy;
     float prevDialogBubbleHeight;
     float gapBetweenBubbles=10f;
     bool leftOrRight = false;
@@ -39,7 +38,7 @@ public class TestDialogBox : MonoBehaviour, IPointerDownHandler
             }
             if(bubbleToRemove!= null)
             {
-                removeDialogBubble(bubbleToRemove);
+                RemoveDialogBubble(bubbleToRemove);
             }
         }
         GameObject newDialogBubble = Instantiate(DialogBubble, rectTransform.position, Quaternion.identity);
@@ -63,7 +62,7 @@ public class TestDialogBox : MonoBehaviour, IPointerDownHandler
         prevDialogBubbleHeight = nDB_rectTransform.sizeDelta.y + gapBetweenBubbles;
     }
 
-    private void removeDialogBubble(GameObject bubbleToRemove)
+    private void RemoveDialogBubble(GameObject bubbleToRemove)
     {
         allDialogBubbles.Remove(bubbleToRemove);
         Destroy(bubbleToRemove);
