@@ -61,7 +61,15 @@ public class DialogBox : MonoBehaviour
         {
             if(currentLineIndex < dialogueLines.Length)
             {
-                CreateNewBubble(dialogueLines[currentLineIndex]);
+                Bubble previousBubble = listOfBubbles[listOfBubbles.Count - 1].GetComponent<Bubble>();
+                
+                if (previousBubble.GetIsDialogueDisplaying())
+                {
+                    previousBubble.Abbreviate();    //Abrège frère.
+                } else
+                {
+                    CreateNewBubble(dialogueLines[currentLineIndex]);
+                }
             } else
             {
                 //todo: retirer toutes les bulles

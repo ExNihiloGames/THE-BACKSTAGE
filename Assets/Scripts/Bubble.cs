@@ -6,7 +6,6 @@ public class Bubble : MonoBehaviour
 {
     public TextMeshProUGUI textComponent;
     public float textSpeed = .05f;
-    private int currentLineIndex = 0; //indice du tableau ou se trouve le dialogue
     private bool isDialogueDisplaying = false;
     private Coroutine TL;
     private string text;
@@ -27,10 +26,7 @@ public class Bubble : MonoBehaviour
 
         if (isDialogueDisplaying)
         {
-            StopCoroutine(TL);
-            textComponent.text = text;
-            isDialogueDisplaying = false;
-            currentLineIndex++;
+            Abbreviate();
         }
         else
         {
@@ -38,9 +34,19 @@ public class Bubble : MonoBehaviour
         }
     }
 
-    private void Start()
+    public bool Abbreviate()
     {
-        
+        StopCoroutine(TL);
+        textComponent.text = text;
+        isDialogueDisplaying = false;
+
+        return true;
+    }
+
+    public bool GetIsDialogueDisplaying()
+    {
+
+        return isDialogueDisplaying;
     }
 
     IEnumerator TypeLine()
@@ -52,7 +58,6 @@ public class Bubble : MonoBehaviour
             textComponent.text += c;
             yield return new WaitForSeconds(textSpeed);
         }
-        currentLineIndex++;
         isDialogueDisplaying = false;
     }
 }
