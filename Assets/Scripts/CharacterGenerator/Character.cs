@@ -20,7 +20,8 @@ public class Character
     public DateTime dateOfBirth => m_dateOfBirth; //Generer une date en fonction de si l'id est valide ou non, un range (15-17) si invalide, un range (18-
     private DateTime m_dateOfBirth;
 
-    public bool hasID => true;
+    public bool hasID => m_hasID;
+    private bool m_hasID;
     public bool isIDValid => false; // 28eme siecle, majorite a 18 ans
     public bool isDrunk => m_characterEffect.HasFlag(CharacterEffect.Drunk);
     public bool isHigh => m_characterEffect.HasFlag(CharacterEffect.High);
@@ -30,7 +31,8 @@ public class Character
     {
         m_firstName = characterSpecie.GetRandomCharacterFirstName();
         m_lastName = characterSpecie.GetRandomCharacterLastName();
-        m_dateOfBirth = new DateTime(2800, 12, 1);
+        m_dateOfBirth = new DateTime(2800, UnityEngine.Random.Range(1,13), UnityEngine.Random.Range(1, 30));
+        m_hasID = 
         m_characterSpecie = characterSpecie;
         m_characterTrait = characterTrait;
         m_characterEffect = characterTrait.GetRandomEffect();
