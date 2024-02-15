@@ -12,7 +12,7 @@
   <ShowSpatialAudioWarningMsg>true</ShowSpatialAudioWarningMsg>
   <WwiseInstallationPathMac />
   <WwiseInstallationPathWindows>I:\Wwise</WwiseInstallationPathWindows>
-  <WwiseProjectPath>../THE-BACKSTAGE_WwiseProject/THE-BACKSTAGE_WwiseProject.wproj</WwiseProjectPath>
+  <WwiseProjectPath>../../THE-BACKSTAGE/THE-BACKSTAGE_WwiseProject/THE-BACKSTAGE_WwiseProject.wproj</WwiseProjectPath>
   <UseWaapi>true</UseWaapi>
   <WaapiPort>8080</WaapiPort>
   <WaapiIP>127.0.0.1</WaapiIP>
