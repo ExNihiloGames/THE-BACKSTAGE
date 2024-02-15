@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7992e101dbacae44eaeee475c75eeee8, type: 3}
+  m_Name: CharCon_RobotMafioso
+  m_EditorClassIdentifier: 
+  forceFullName: 0
+  fullName: 
+  characterSpecie: {fileID: 11400000, guid: 90535c8bfd885a842a9f770eccb80ef8, type: 2}
+  characterTrait: {fileID: 11400000, guid: 6ad20da2624ffd646aa1a04c40846c80, type: 2}
+  forceEffects: 0
+  characterEffect: {fileID: 0}
