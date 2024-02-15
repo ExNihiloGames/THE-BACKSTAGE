@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 using TMPro;
 using UnityEditor;
 
-public class DialogManager : MonoBehaviour
+public class DialogBox : MonoBehaviour
 {
     public GameObject BubbleBase; //Mettre la bulle qui sert de modèle depuis Unity
     private int bubblesDisplayed = 0;
