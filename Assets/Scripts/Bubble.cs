@@ -1,8 +1,5 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class Bubble : MonoBehaviour
@@ -12,7 +9,7 @@ public class Bubble : MonoBehaviour
     private int currentLineIndex = 0; //indice du tableau ou se trouve le dialogue
     private bool isDialogueDisplaying = false;
     private Coroutine TL;
-    public string text;
+    private string text;
 
     public Bubble(string givenText) //Inutilisé
     {
@@ -39,6 +36,11 @@ public class Bubble : MonoBehaviour
         {
             TL = StartCoroutine(TypeLine());
         }
+    }
+
+    private void Start()
+    {
+        
     }
 
     IEnumerator TypeLine()
