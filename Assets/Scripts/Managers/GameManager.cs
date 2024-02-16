@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
     {
         AcceptRejectDebugPanel.accepted += OnChoice;
         NExtGuestClickZone.Clicked += CallNextGuest;
+        CharacterDisplay.ReadyToDisplay +=
 
         guestInQueue = new List<Character>();
         guestInBar = new List<Character>();
@@ -108,8 +109,9 @@ public class GameManager : MonoBehaviour
         Debug.Log("Ambiance in bar: " + m_ambiance);
     }
 
-    public void RequestDialog()
+    public void RequestDialog(bool characterDisplayState)
     {
-
+        string isReady = characterDisplayState ? "READY" : "NOT READY";
+        Debug.Log("Character Display is " + isReady);
     }
 }

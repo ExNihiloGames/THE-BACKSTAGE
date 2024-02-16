@@ -19,7 +19,19 @@ public class PlayerDialogs : ScriptableObject
 
     Dictionary<DialogStyle, List<string>> playerDialogs = new Dictionary<DialogStyle, List<string>>();
 
-    public string GetRandomGreeting(DialogStyle dialogStyle)
+    public string GetRandomDialog(DialogStyle dialogStyle)
+    {
+        GenerateDict();
+        return playerDialogs[dialogStyle][Random.Range(0, playerDialogs[dialogStyle].Count)];
+    }
+
+    public string GetSpecificDialog(DialogStyle dialogStyle, int dialogIndex)
+    {
+        GenerateDict();
+        return playerDialogs[dialogStyle][dialogIndex]; 
+    }
+
+    void GenerateDict()
     {
         playerDialogs[DialogStyle.Greetings] = greetings;
         playerDialogs[DialogStyle.Acquiesce] = acquiesce;
@@ -32,7 +44,5 @@ public class PlayerDialogs : ScriptableObject
         playerDialogs[DialogStyle.RefusalDrugTest] = refusalDrugTest;
         playerDialogs[DialogStyle.ProtestAlcoholTestResult] = protestAlcoholTestResult;
         playerDialogs[DialogStyle.ProtestDrugTestResult] = protestDrugTestResult;
-
-        return playerDialogs[dialogStyle][Random.Range(0, playerDialogs[dialogStyle].Count)];
     }
 }

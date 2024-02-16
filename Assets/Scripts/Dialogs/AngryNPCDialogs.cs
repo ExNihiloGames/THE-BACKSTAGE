@@ -20,7 +20,19 @@ public class AngryNPCDialogs : ScriptableObject
 
     Dictionary<DialogStyle, List<string>> angryNPC = new Dictionary<DialogStyle, List<string>>();
 
-    public string GetRandomGreeting(DialogStyle dialogStyle)
+    public string GetRandomDialog(DialogStyle dialogStyle)
+    {
+        GenerateDict();
+        return angryNPC[dialogStyle][Random.Range(0, angryNPC[dialogStyle].Count)];
+    }
+
+    public string GetSpecificDialog(DialogStyle dialogStyle, int dialogIndex)
+    {
+        GenerateDict();
+        return angryNPC[dialogStyle][dialogIndex];
+    }
+
+    void GenerateDict()
     {
         angryNPC[DialogStyle.Greetings] = greetings;
         angryNPC[DialogStyle.Acquiesce] = acquiesce;
@@ -34,7 +46,5 @@ public class AngryNPCDialogs : ScriptableObject
         angryNPC[DialogStyle.RefusalDrugTest] = refusalDrugTest;
         angryNPC[DialogStyle.ProtestAlcoholTestResult] = protestAlcoholTestResult;
         angryNPC[DialogStyle.ProtestDrugTestResult] = protestDrugTestResult;
-
-        return angryNPC[dialogStyle][Random.Range(0, angryNPC[dialogStyle].Count)];
     }
 }

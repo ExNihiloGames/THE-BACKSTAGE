@@ -20,7 +20,19 @@ public class HighNPCDialogs : ScriptableObject
 
     Dictionary<DialogStyle, List<string>> highNPC = new Dictionary<DialogStyle, List<string>>();
 
-    public string GetRandomGreeting(DialogStyle dialogStyle)
+    public string GetRandomDialog(DialogStyle dialogStyle)
+    {
+        GenerateDict();
+        return highNPC[dialogStyle][Random.Range(0, highNPC[dialogStyle].Count)];
+    }
+
+    public string GetSpecificDialog(DialogStyle dialogStyle, int dialogIndex)
+    {
+        GenerateDict();
+        return highNPC[dialogStyle][dialogIndex];
+    }
+
+    void GenerateDict()
     {
         highNPC[DialogStyle.Greetings] = greetings;
         highNPC[DialogStyle.Acquiesce] = acquiesce;
@@ -34,7 +46,5 @@ public class HighNPCDialogs : ScriptableObject
         highNPC[DialogStyle.RefusalDrugTest] = refusalDrugTest;
         highNPC[DialogStyle.ProtestAlcoholTestResult] = protestAlcoholTestResult;
         highNPC[DialogStyle.ProtestDrugTestResult] = protestDrugTestResult;
-
-        return highNPC[dialogStyle][Random.Range(0, highNPC[dialogStyle].Count)];
     }
 }
