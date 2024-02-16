@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,8 @@ using UnityEngine.UI;
 
 public class CharacterDisplay : MonoBehaviour, IPointerDownHandler, IDropHandler
 {
+    public static event Action<bool> ReadyToDisplay;
+
     public GameObject idCardTemplate;
 
     Character currentCharater;
@@ -14,17 +17,33 @@ public class CharacterDisplay : MonoBehaviour, IPointerDownHandler, IDropHandler
     bool hasHandedId;
     bool hasBeenAlcoholTested;
     bool hasBeenDrugTested;
+    bool idHandedBack;
 
     // Start is called before the first frame update
     void Start()
     {
         GameManager.OnGuestShowUP += LoadCharacter;
+        GameManager.OnGuestAccepted += UnloadCharacter;
+        GameManager.OnGuestRejected += UnloadCharacter;
         rectTransform = GetComponent<RectTransform>();
+        ReadyToDisplay?.Invoke(true);
     }
 
     void LoadCharacter(Character character)
     {
         currentCharater = character;
+        GetComponent<Image>().enabled = true;
+        ReadyToDisplay?.Invoke(false);
+    }
+
+    void UnloadCharacter()
+    {
+        GetComponent<Image>().enabled = false;
+        currentCharater = null;
+        hasHandedId = false;
+        hasBeenAlcoholTested = false;
+        hasBeenDrugTested = false;
+        ReadyToDisplay?.Invoke(true);
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -95,7 +114,8 @@ public class CharacterDisplay : MonoBehaviour, IPointerDownHandler, IDropHandler
             }
             else if (eventData.pointerDrag.GetComponent<IDCard>() != null)
             {
-                Debug.Log("Thanks");
+                Debug.Log("Thanks"); // Request DialogManager
+                idHandedBack = true;
                 Destroy(eventData.pointerDrag);
             }
         }
@@ -115,6 +135,18 @@ public class CharacterDisplay : MonoBehaviour, IPointerDownHandler, IDropHandler
         idCardContent.species = currentCharater.characterSpecie.displayName;
         idCardContent.birthdate = currentCharater.dateOfBirth.ToShortDateString();
         idCardContent.isValid = currentCharater.isIDValid;
+    }
+
+    private void CheckHasID()
+    {
+        if (!idHandedBack)
+        {
+            Debug.Log("Can I have my ID back?");
+        }
+        else
+        {
+            UnloadCharacter();
+        }
     }
 
     IEnumerator ConductTest(GameObject testEquipment, float testDuration)

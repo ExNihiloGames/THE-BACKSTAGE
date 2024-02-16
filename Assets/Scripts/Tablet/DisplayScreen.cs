@@ -34,6 +34,8 @@ public class DisplayScreen : MonoBehaviour
     {
         ItemSlot itemSlot = FindObjectOfType<ItemSlot>();
         CardReader cardReader = FindObjectOfType<CardReader>();
+        GameManager.OnGuestAccepted += ClearGuestInfoScreen;
+        GameManager.OnGuestRejected += ClearGuestInfoScreen;
         itemSlot.OnTestEquipmentRead += DisplayTestResult;
         cardReader.OnCardRead += DisplayCard;
     }
@@ -53,5 +55,19 @@ public class DisplayScreen : MonoBehaviour
         testResultDisplay.TestTypeText.text = testConducted.ToString();
         testResultDisplay.testResultText.text = testResult? "POSITIVE": "NEGATIVE";
         testResultDisplay.testResultText.color = testResult? Color.red: Color.green;
+    }
+
+    private void ClearGuestInfoScreen()
+    {
+        cardResultDisplay.firstNameTxt.text = "";
+        cardResultDisplay.lastNameTxt.text = "";
+        cardResultDisplay.speciesTxt.text = "";
+        cardResultDisplay.birthDateTxt.text = "";
+        cardResultDisplay.isValidText.text = "";
+        cardResultDisplay.isValidText.color = Color.black;
+
+        testResultDisplay.TestTypeText.text = "";
+        testResultDisplay.testResultText.text = "";
+        testResultDisplay.testResultText.color = Color.black;
     }
 }
