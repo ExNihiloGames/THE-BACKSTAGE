@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using TMPro;
 using UnityEditor;
+using Unity.VisualScripting;
 
 public class DialogBox : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class DialogBox : MonoBehaviour
     RectTransform panelRectTransform;
     private List<GameObject> listOfBubbles = new List<GameObject>();
     bool bubbleSide = false;
+    Bubble previousBubble;
+
     /*    private static GameManager _instance;
         public static GameManager Instance { get { return _instance; } }
 
@@ -53,6 +56,18 @@ public class DialogBox : MonoBehaviour
         CreateNewBubble(dialogueLines[0]);
     }
 
+    private Bubble GetPreviousBubble()
+    {
+        if (listOfBubbles.Count > 0)
+        {
+            return previousBubble = listOfBubbles[listOfBubbles.Count - 1].GetComponent<Bubble>();
+        }
+        else
+        {
+            return null;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -61,8 +76,7 @@ public class DialogBox : MonoBehaviour
         {
             if(currentLineIndex < dialogueLines.Length)
             {
-                Bubble previousBubble = listOfBubbles[listOfBubbles.Count - 1].GetComponent<Bubble>();
-                
+                previousBubble = GetPreviousBubble();
                 if (previousBubble.GetIsDialogueDisplaying())
                 {
                     previousBubble.Abbreviate();    //Abrège frère.
@@ -81,13 +95,18 @@ public class DialogBox : MonoBehaviour
     {
         float margin = 20;
         List<GameObject> bubblesToRemove = new List<GameObject>();
-        
-        if(listOfBubbles.Count > 0)
+
+        //gestion des bulles déjà éxistante
+        if (listOfBubbles.Count > 0) 
         {
+            Bubble previousBubble = GetPreviousBubble();
+            float rectPreviousBubbleHeight = previousBubble.GetComponent<RectTransform>().rect.height;
+
             foreach (GameObject aBubble in listOfBubbles)
             {
-                RectTransform aBubbleRectTransform = aBubble.GetComponent<RectTransform>();
-                aBubbleRectTransform.localPosition = new Vector3(aBubbleRectTransform.localPosition.x, aBubbleRectTransform.localPosition.y + aBubbleRectTransform.rect.height + margin);
+                Bubble theBubble = aBubble.GetComponent<Bubble>();
+                RectTransform aBubbleRectTransform = theBubble.GetComponent<RectTransform>();
+                theBubble.GoUp(rectPreviousBubbleHeight + margin);
 
                 if (aBubbleRectTransform.localPosition.y + margin * 2 > (panelRectTransform.sizeDelta.y / 2))
                 {
@@ -102,42 +121,44 @@ public class DialogBox : MonoBehaviour
             }
         }
 
-        GameObject newBubble = Instantiate(BubbleBase, panelRectTransform.position, Quaternion.identity);
-        listOfBubbles.Add(newBubble);
-        Bubble bubble = newBubble.GetComponent<Bubble>();
-        bubble.SetText(text);
-        RectTransform newBubbleRectTransform = newBubble.GetComponent<RectTransform>();
+        GameObject newBubble = Instantiate(BubbleBase, panelRectTransform.position, Quaternion.identity); //copie du prefab Bubble (GameObject)
+        listOfBubbles.Add(newBubble);   //on l'ajoute a la liste des Bubbles affichés
 
-        
-        newBubbleRectTransform.SetParent(panelRectTransform); //On indique qui est le parent
-        newBubbleRectTransform.position = panelRectTransform.position; //Panel
+        Bubble newBubbleBubble = newBubble.GetComponent<Bubble>();   //on integre le composant Bubble
+        newBubbleBubble.SetText(text); //on lui indique le texte
+
+        RectTransform newBubbleRectTransform = newBubble.GetComponent<RectTransform>(); //on integre le rectTransform
+        newBubbleRectTransform.SetParent(panelRectTransform); //On lui indique son parent
 
         //gestion de la taille
-        newBubbleRectTransform.localScale = new Vector3(1f,1f,1f); //dû à un bug de Unity on force le scale initial
-        newBubbleRectTransform.sizeDelta = new Vector2(panelRectTransform.sizeDelta.x/1.8f, newBubbleRectTransform.sizeDelta.y); // taille: largeur du panneau,on garde la hauteur initiale
+        newBubbleBubble.ForceScale(); //dû à un bug de Unity on force le scale initial
 
-        //gestion du coté
-        if (bubbleSide)
+        //newBubbleRectTransform.sizeDelta = new Vector2(panelRectTransform.sizeDelta.x/1.8f, newBubbleRectTransform.sizeDelta.y); // taille: largeur du panneau,on garde la hauteur initiale
+
+        //gestion du coté --a mettre en fonction public
+        if (bubbleSide) //bubbleSide = gauche ou droite (false / true)
         {
             //gauche
-            newBubbleRectTransform.localPosition = new Vector2(((newBubbleRectTransform.sizeDelta.x - panelRectTransform.sizeDelta.x) / 2) + margin, ((newBubbleRectTransform.sizeDelta.y - panelRectTransform.sizeDelta.y) / 2) + margin);
+            //newBubbleRectTransform.localPosition = new Vector2(((newBubbleRectTransform.sizeDelta.x - panelRectTransform.sizeDelta.x) / 2) + margin, ((newBubbleRectTransform.sizeDelta.y - panelRectTransform.sizeDelta.y) / 2) + margin);
             bubbleSide = !bubbleSide;
+            newBubbleBubble.Position("left");
         }
         else
         {
             //droite
-            newBubbleRectTransform.localPosition = new Vector2(((newBubbleRectTransform.sizeDelta.x * -1 + panelRectTransform.sizeDelta.x) / 2) - margin, ((newBubbleRectTransform.sizeDelta.y - panelRectTransform.sizeDelta.y) / 2) + margin);
+            //newBubbleRectTransform.localPosition = new Vector2(((newBubbleRectTransform.sizeDelta.x * -1 + panelRectTransform.sizeDelta.x) / 2) - margin, ((newBubbleRectTransform.sizeDelta.y - panelRectTransform.sizeDelta.y) / 2) + margin);
             bubbleSide = !bubbleSide;
+            newBubbleBubble.Position("right");
         }
 
         newBubble.name = "Bubble_" + ++bubblesDisplayed;
         newBubble.SetActive(true);
 
+        //affichage du texte
         TextMeshProUGUI textMeshProComponent = newBubble.GetComponentInChildren<TextMeshProUGUI>();
-
         if (textMeshProComponent != null)
         {
-            bubble.DisplayText();
+            newBubbleBubble.DisplayText();
             currentLineIndex++;
         }
         else
