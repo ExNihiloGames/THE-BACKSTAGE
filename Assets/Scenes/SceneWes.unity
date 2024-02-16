@@ -158,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 241, y: 91.863}
+  m_AnchoredPosition: {x: 0, y: -0.0000076293945}
   m_SizeDelta: {x: 550, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &48130502
@@ -213,6 +213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BubbleBase: {fileID: 1636917153834194785, guid: d047c112aa88e0840b086f80cdc26cf2,
     type: 3}
+  marginBubbles: 20
 --- !u!1 &281640918
 GameObject:
   m_ObjectHideFlags: 0

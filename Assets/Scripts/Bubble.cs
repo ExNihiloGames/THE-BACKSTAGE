@@ -1,12 +1,12 @@
 using System.Collections;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class Bubble : MonoBehaviour
 {
     public TextMeshProUGUI textComponent;
     public float textSpeed = .05f;
-    public bool adaptBubbleSize = true;
     private bool isDialogueDisplaying = false;
     private Coroutine TL;
     private string text;
@@ -17,10 +17,16 @@ public class Bubble : MonoBehaviour
         text = givenText;
     }
 
+    public void updateBackgroundColor(Color color)
+    {
+        GetComponent<Image>().color = color;
+    }
+    public void updateTextColor(Color color)
+    {
+        textComponent.color = color;
+    }
     public void DisplayText()
     {
-        //l'effacer et recommencer
-
         textComponent.text = string.Empty;  //on retire le texte de la préfab (lorem ipsum)
         textComponent.text = text; //On écrit le texte pour que la bulle s'affiche entierement, comme ca l'espace nécessaire est déjà calculé
         AdaptBubbleSize();

@@ -16,6 +16,9 @@ public class DialogBox : MonoBehaviour
     bool bubbleSide = false;
     Bubble previousBubble;
     public int marginBubbles = 20;
+    private Color bubbleBGColorLeft = Color.red;
+    private Color bubbleBGColorRight = Color.blue;
+    private Color textColor = Color.white;
 
     /*    private static GameManager _instance;
         public static GameManager Instance { get { return _instance; } }
@@ -97,6 +100,7 @@ public class DialogBox : MonoBehaviour
         GameObject newBubble = Instantiate(BubbleBase, panelRectTransform.position, Quaternion.identity); //copie du prefab Bubble (GameObject)
 
         Bubble newBubbleBubble = newBubble.GetComponent<Bubble>();   //on integre le composant Bubble
+        newBubbleBubble.updateTextColor(textColor);
         newBubbleBubble.SetText(text); //on lui indique le texte
 
         RectTransform newBubbleRectTransform = newBubble.GetComponent<RectTransform>(); //on integre le rectTransform
@@ -139,12 +143,14 @@ public class DialogBox : MonoBehaviour
             //gauche
             bubbleSide = !bubbleSide;
             newBubbleBubble.Position("left");
+            newBubbleBubble.GetComponent<Bubble>().updateBackgroundColor(bubbleBGColorLeft);
         }
         else
         {
             //droite
             bubbleSide = !bubbleSide;
             newBubbleBubble.Position("right");
+            newBubbleBubble.GetComponent<Bubble>().updateBackgroundColor(bubbleBGColorRight);
         }
     }
 
