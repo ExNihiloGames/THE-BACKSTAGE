@@ -15,6 +15,7 @@ public class DialogBox : MonoBehaviour
     private List<GameObject> listOfBubbles = new List<GameObject>();
     bool bubbleSide = false;
     Bubble previousBubble;
+    public int marginBubbles = 20;
 
     /*    private static GameManager _instance;
         public static GameManager Instance { get { return _instance; } }
@@ -50,7 +51,6 @@ public class DialogBox : MonoBehaviour
     void Start()
     {
         panelRectTransform = GetComponent<RectTransform>();
-        Debug.Log("DisplayManager");
         BubbleBase.SetActive(false);
 
         CreateNewBubble(dialogueLines[0]);
@@ -93,36 +93,8 @@ public class DialogBox : MonoBehaviour
 
     void CreateNewBubble(string text = "")
     {
-        float margin = 20;
-        List<GameObject> bubblesToRemove = new List<GameObject>();
-
-        //gestion des bulles déjà éxistante
-        if (listOfBubbles.Count > 0) 
-        {
-            Bubble previousBubble = GetPreviousBubble();
-            float rectPreviousBubbleHeight = previousBubble.GetComponent<RectTransform>().rect.height;
-
-            foreach (GameObject aBubble in listOfBubbles)
-            {
-                Bubble theBubble = aBubble.GetComponent<Bubble>();
-                RectTransform aBubbleRectTransform = theBubble.GetComponent<RectTransform>();
-                theBubble.GoUp(rectPreviousBubbleHeight + margin);
-
-                if (aBubbleRectTransform.localPosition.y + margin * 2 > (panelRectTransform.sizeDelta.y / 2))
-                {
-                    bubblesToRemove.Add(aBubble);
-                }
-            }
-
-            foreach (GameObject aBubble in bubblesToRemove)
-            {
-                listOfBubbles.Remove(aBubble);
-                Destroy(aBubble);
-            }
-        }
 
         GameObject newBubble = Instantiate(BubbleBase, panelRectTransform.position, Quaternion.identity); //copie du prefab Bubble (GameObject)
-        listOfBubbles.Add(newBubble);   //on l'ajoute a la liste des Bubbles affichés
 
         Bubble newBubbleBubble = newBubble.GetComponent<Bubble>();   //on integre le composant Bubble
         newBubbleBubble.SetText(text); //on lui indique le texte
@@ -133,23 +105,7 @@ public class DialogBox : MonoBehaviour
         //gestion de la taille
         newBubbleBubble.ForceScale(); //dû à un bug de Unity on force le scale initial
 
-        //newBubbleRectTransform.sizeDelta = new Vector2(panelRectTransform.sizeDelta.x/1.8f, newBubbleRectTransform.sizeDelta.y); // taille: largeur du panneau,on garde la hauteur initiale
-
-        //gestion du coté --a mettre en fonction public
-        if (bubbleSide) //bubbleSide = gauche ou droite (false / true)
-        {
-            //gauche
-            //newBubbleRectTransform.localPosition = new Vector2(((newBubbleRectTransform.sizeDelta.x - panelRectTransform.sizeDelta.x) / 2) + margin, ((newBubbleRectTransform.sizeDelta.y - panelRectTransform.sizeDelta.y) / 2) + margin);
-            bubbleSide = !bubbleSide;
-            newBubbleBubble.Position("left");
-        }
-        else
-        {
-            //droite
-            //newBubbleRectTransform.localPosition = new Vector2(((newBubbleRectTransform.sizeDelta.x * -1 + panelRectTransform.sizeDelta.x) / 2) - margin, ((newBubbleRectTransform.sizeDelta.y - panelRectTransform.sizeDelta.y) / 2) + margin);
-            bubbleSide = !bubbleSide;
-            newBubbleBubble.Position("right");
-        }
+        PushToSide(newBubbleBubble);
 
         newBubble.name = "Bubble_" + ++bubblesDisplayed;
         newBubble.SetActive(true);
@@ -159,11 +115,65 @@ public class DialogBox : MonoBehaviour
         if (textMeshProComponent != null)
         {
             newBubbleBubble.DisplayText();
+            //gestion des autres bubbles
+            ClimbPreviousBubbles(newBubbleRectTransform.rect.height); //on remonte les autres bulles relativement a la hauteur de la nouvelle bulle
+            listOfBubbles.Add(newBubble);   //on l'ajoute a la liste des Bubbles affichés
+            Debug.Log("distance to climb: " + newBubbleRectTransform.rect.height);
+
             currentLineIndex++;
         }
         else
         {
             Debug.LogError("Le composant TextMeshPro n'a pas été trouvé dans newBubble.");
+        }
+    }
+
+    /**
+     * true = gauche; false = droite 
+    */
+    private void PushToSide(Bubble newBubbleBubble)
+    {
+        //gestion du coté 
+        if (bubbleSide)
+        {
+            //gauche
+            bubbleSide = !bubbleSide;
+            newBubbleBubble.Position("left");
+        }
+        else
+        {
+            //droite
+            bubbleSide = !bubbleSide;
+            newBubbleBubble.Position("right");
+        }
+    }
+
+    void ClimbPreviousBubbles(float distance)
+    {
+        //gestion des bulles déjà éxistante
+        List<GameObject> bubblesToRemove = new List<GameObject>();
+        if (listOfBubbles.Count > 0)
+        {
+            Bubble previousBubble = GetPreviousBubble();
+            float rectPreviousBubbleHeight = previousBubble.GetComponent<RectTransform>().rect.height;
+
+            foreach (GameObject aBubble in listOfBubbles)
+            {
+                Bubble theBubble = aBubble.GetComponent<Bubble>();
+                RectTransform aBubbleRectTransform = theBubble.GetComponent<RectTransform>();
+                theBubble.Climb(distance+ marginBubbles);
+
+                if (aBubbleRectTransform.localPosition.y + marginBubbles * 2 > (panelRectTransform.sizeDelta.y / 2))
+                {
+                    bubblesToRemove.Add(aBubble);
+                }
+            }
+
+            foreach (GameObject aBubble in bubblesToRemove)
+            {
+                listOfBubbles.Remove(aBubble);
+                Destroy(aBubble);
+            }
         }
     }
 }

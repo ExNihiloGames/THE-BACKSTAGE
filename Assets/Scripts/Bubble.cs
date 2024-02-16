@@ -53,36 +53,18 @@ public class Bubble : MonoBehaviour
 
     private void AdaptBubbleSize()
     {
-        Vector2 textSize = textComponent.GetPreferredValues();
-        
+        Vector2 textNeededSpace = textComponent.GetPreferredValues();
+        int margin = 20;
         imageRectTransform = GetComponent<RectTransform>();
         RectTransform panelRectTransform = imageRectTransform.parent.GetComponent<RectTransform>();
+        float maxWidth = (panelRectTransform.rect.width * 2) / 3;   //la largeur d'une bulle ne peut etre > 2/3 de la largeur du panel
+        float maxHeight = imageRectTransform.rect.height;
 
-        Debug.Log(panelRectTransform.name);
-
-        //recherche de défauts
-        float initialX = imageRectTransform.sizeDelta.x;
-        float initialY = imageRectTransform.sizeDelta.y;
-
-        Vector2 panelMin = panelRectTransform.anchoredPosition - panelRectTransform.sizeDelta;
-        Vector2 panelMax = panelRectTransform.anchoredPosition + panelRectTransform.sizeDelta;
-        Vector2 imageMin = imageRectTransform.anchoredPosition - imageRectTransform.sizeDelta;
-        Vector2 imageMax = imageRectTransform.anchoredPosition + imageRectTransform.sizeDelta;
-
-        bool leftOverflow = imageMin.x < panelMin.x;
-        bool rightOverflow = imageMax.x > panelMax.x;
-
-        Debug.Log(panelMin);
-        Debug.Log(panelMax);
-
-
-        // Afficher les résultats dans la console
-        Debug.Log("Dépassement du côté gauche : " + leftOverflow);
-        Debug.Log("Dépassement du côté droit : " + rightOverflow);
+        if (textNeededSpace.x > maxWidth) { textNeededSpace.x = maxWidth - margin; };
+        if(textNeededSpace.y > maxHeight) {  textNeededSpace.y = maxHeight - margin; };
 
         //adaptation de la bulle
-
-        imageRectTransform.sizeDelta = textSize;
+        imageRectTransform.sizeDelta = textNeededSpace;
     }
 
     public void ForceScale()
@@ -121,11 +103,7 @@ public class Bubble : MonoBehaviour
         }
     }
 
-    public void SetHeight(float height)
-    {
-        //gere sa hauteur a l'aide du parametre
-    }
-    public void GoUp(float distance)
+    public void Climb(float distance)
     {
         imageRectTransform = GetComponent<RectTransform>();
         imageRectTransform.localPosition = new Vector2(imageRectTransform.localPosition.x, imageRectTransform.localPosition.y + distance);
