@@ -63,6 +63,7 @@ public class GameManager : MonoBehaviour
             OnGuestShowUP?.Invoke(guestInQueue[0]);
             currentGuest = guestInQueue[0];
             Debug.Log("New Guest at the bar: " + currentGuest.characterSpecie.displayName);
+            Debug.Log("Guest is:" + "Angry:" + currentGuest.isAngry + "Drunk:" + currentGuest.isDrunk);
             Debug.Log("Ambiance influence: " + currentGuest.ambianceScore);
         }        
     }

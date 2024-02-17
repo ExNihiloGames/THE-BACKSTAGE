@@ -58,7 +58,6 @@ public class CharacterDisplay : MonoBehaviour, IPointerDownHandler, IDropHandler
         {
             if (!hasHandedId)
             {
-                Debug.Log("ID? Sure. Here it is");
                 dialogManager.RequestNPCDialog(DialogStyle.Acquiesce);
                 GenerateID();
                 hasHandedId = true;
@@ -70,7 +69,6 @@ public class CharacterDisplay : MonoBehaviour, IPointerDownHandler, IDropHandler
         }
         else
         {
-            Debug.Log("Heu... I don't have it on me but if you let me pass I won't cause you trouble");
             dialogManager.RequestNPCDialog(DialogStyle.NoIDCard);
             dialogManager.RequestPlayerDialog(DialogStyle.NoIDCard);
         }
@@ -84,22 +82,19 @@ public class CharacterDisplay : MonoBehaviour, IPointerDownHandler, IDropHandler
             {
                 if (!hasBeenAlcoholTested || !hasBeenDrugTested)
                 {
-
-                    Debug.Log("Pfff that's really not necessary...");
-                    dialogManager.RequestNPCDialog(DialogStyle.Acquiesce);
                     TestingItem testEquipment = eventData.pointerDrag.GetComponent<TestingItem>();
                     switch (testEquipment.testEquipmentType)
                     {
                         case TestEquipmentType.Alcohol:
                             if (!hasBeenAlcoholTested)
                             {
+                                dialogManager.RequestNPCDialog(DialogStyle.Acquiesce);
                                 StartCoroutine(ConductTest(eventData.pointerDrag, 1.5f));
                                 testEquipment.isDrunk = currentCharater.isDrunk;
                                 hasBeenAlcoholTested = true;
                             }
                             else
                             {
-                                Debug.Log("Again? What you like the smell of my breath so much ?");
                                 dialogManager.RequestNPCDialog(DialogStyle.RefusalAlcoholTest);
 
                             }
@@ -108,13 +103,13 @@ public class CharacterDisplay : MonoBehaviour, IPointerDownHandler, IDropHandler
                         case TestEquipmentType.Drugs:
                             if (!hasBeenDrugTested)
                             {
+                                dialogManager.RequestNPCDialog(DialogStyle.Acquiesce);
                                 StartCoroutine(ConductTest(eventData.pointerDrag, 1.5f));
                                 testEquipment.isHigh = currentCharater.isHigh;
                                 hasBeenDrugTested = true;
                             }
                             else
                             {
-                                Debug.Log("Yes, This is my natural state, thanks. No need to try that again.");
                                 dialogManager.RequestNPCDialog(DialogStyle.RefusalDrugTest);
                             }
                             break;
@@ -127,8 +122,7 @@ public class CharacterDisplay : MonoBehaviour, IPointerDownHandler, IDropHandler
             }
             else if (eventData.pointerDrag.GetComponent<IDCard>() != null)
             {
-                Debug.Log("Thanks");
-                dialogManager.RequestNPCDialog(DialogStyle.Thanks);
+                //dialogManager.RequestNPCDialog(DialogStyle.Thanks);
                 idHandedBack = true;
                 Destroy(eventData.pointerDrag);
             }
