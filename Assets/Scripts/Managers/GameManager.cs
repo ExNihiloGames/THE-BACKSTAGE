@@ -112,7 +112,10 @@ public class GameManager : MonoBehaviour
         Debug.Log("Ambiance in bar: " + m_ambiance);
 
         //Todo: temporaire
-        ambianceBar.GetComponent<AmbianceBar>().SetAmbianceLevel(m_ambiance*2);
+        AmbianceBar ambianceBarComponent = ambianceBar.GetComponent<AmbianceBar>();
+        ambianceBarComponent.SetMinAmbianceValue(0);
+        ambianceBarComponent.SetMaxAmbianceValue(ambianceJaugeRange / 2);
+        ambianceBarComponent.SetAmbianceLevel(m_ambiance);
     }
 
     public void DebugCharacterDisplayState(bool characterDisplayState)
