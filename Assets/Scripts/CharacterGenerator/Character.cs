@@ -13,7 +13,13 @@ public class Character
 
     static float hasIDProbability = 0.85f;
     static float isIDValidProbability = 0.85f;
+    static float isValidAgeProbability = 0.9f;
 
+    static float baseAmbianceScore = 15f;
+    static float isUnderAgeAmbianceMalus = -0.25f;
+    static float iDInvalidAmbianceMalus = -0.5f;
+    static float isDrunkAmbianceMalus = -1f;
+    static float isHighAmbianceMalus = -1f;
     public string firstName => m_firstName;
     private string m_firstName;
 
@@ -36,11 +42,18 @@ public class Character
     private bool m_hasID;
     public bool isIDValid => m_isIDValid;
     private bool m_isIDValid;
+    public bool isValidAge => m_isValidAge;
+    private bool m_isValidAge;
 
     public int age => (today - m_dateOfBirth).Days / 365;
 
     public bool isDrunk => m_characterEffect.HasFlag(CharacterEffect.Drunk);
     public bool isHigh => m_characterEffect.HasFlag(CharacterEffect.High);
+    public bool isAngry => m_characterEffect.HasFlag(CharacterEffect.Angry);
+    public bool isPolite => m_characterEffect.HasFlag(CharacterEffect.Polite);
+
+    public float ambianceScore => m_ambianceScore;
+    private float m_ambianceScore;
 
     public Character(CharacterSpecie characterSpecie, CharacterTrait characterTrait)
     {
@@ -52,15 +65,21 @@ public class Character
         m_characterEffect = characterTrait.GetRandomEffect();
 
         m_hasID = UnityEngine.Random.Range(0f, 1f) < hasIDProbability;
-        m_isIDValid = UnityEngine.Random.Range(0f, 1f) < hasIDProbability * isIDValidProbability;
-        // isIDValidAge et isIDValidLogo
+        m_isIDValid = UnityEngine.Random.Range(0f, 1f) < isIDValidProbability;
+        m_isValidAge = UnityEngine.Random.Range(0f, 1f) < isValidAgeProbability;
 
-
-        m_dateOfBirth = today - (m_isIDValid ? new TimeSpan((UnityEngine.Random.Range(majorityAge, majorityAge + maxAgeDifferenceAboveMajority + 1) * dayInAYear + UnityEngine.Random.Range(0, dayInAYear + 1)), 0, 0, 0) :
+        m_dateOfBirth = today - (m_isValidAge ? new TimeSpan((UnityEngine.Random.Range(majorityAge, majorityAge + maxAgeDifferenceAboveMajority + 1) * dayInAYear + UnityEngine.Random.Range(0, dayInAYear + 1)), 0, 0, 0) :
         //                                                   random year number between majorityAge and majorityAge + maxAgeDifferenceAboveMajority * dayInAYear - random day offset   
                                                new TimeSpan((UnityEngine.Random.Range(majorityAge - minAgeDifferenceBelowMajority, majorityAge + 1) * dayInAYear) - UnityEngine.Random.Range(1, dayInAYear + 1), 0, 0, 0));
         //                                                   random year number between majorityAge - minAgeDifferenceBelowMajority and majorityAge * dayInAYear + random day offset (added so it becomes less than majority                                                              
+        int isDrunkInt = isDrunk ? 1 : 0;
+        int isHighInt = isHigh ? 1 : 0;
+        int idInvalidOrNoIdInt = (hasID && isIDValid) ? 0 : 1;
+        int isUnderAgeInt = m_isValidAge? 0 : 1;
+
+        m_ambianceScore = baseAmbianceScore + (isDrunkInt * isDrunkAmbianceMalus + isHighInt * isHighAmbianceMalus + idInvalidOrNoIdInt * iDInvalidAmbianceMalus + isUnderAgeInt * isUnderAgeAmbianceMalus) * baseAmbianceScore;
     }
+
     public void SetName(string firstName, string lastName)
     {
         m_firstName = firstName;

@@ -30,12 +30,17 @@ public class DisplayScreen : MonoBehaviour
     public CardResultDisplay cardResultDisplay;
     public TestResultDisplay testResultDisplay;
 
+    private DialogManager dialogManager;
+
     private void Start()
     {
         ItemSlot itemSlot = FindObjectOfType<ItemSlot>();
         CardReader cardReader = FindObjectOfType<CardReader>();
+        GameManager.OnGuestAccepted += ClearGuestInfoScreen;
+        GameManager.OnGuestRejected += ClearGuestInfoScreen;
         itemSlot.OnTestEquipmentRead += DisplayTestResult;
         cardReader.OnCardRead += DisplayCard;
+        dialogManager = DialogManager.Instance;
     }
 
     private void DisplayCard(object sender, OnCardReadEventArgs card)
@@ -53,5 +58,32 @@ public class DisplayScreen : MonoBehaviour
         testResultDisplay.TestTypeText.text = testConducted.ToString();
         testResultDisplay.testResultText.text = testResult? "POSITIVE": "NEGATIVE";
         testResultDisplay.testResultText.color = testResult? Color.red: Color.green;
+        if (testResult)
+        {
+            if (testConducted == TestEquipmentType.Alcohol)
+            {
+                dialogManager.RequestPlayerDialog(DialogStyle.RefusalAlcoholTest);
+                dialogManager.RequestNPCDialog(DialogStyle.ProtestAlcoholTestResult);
+            }
+            else
+            {
+                dialogManager.RequestPlayerDialog(DialogStyle.RefusalDrugTest);
+                dialogManager.RequestNPCDialog(DialogStyle.ProtestDrugTestResult);
+            }
+        }
+    }
+
+        private void ClearGuestInfoScreen()
+    {
+        cardResultDisplay.firstNameTxt.text = "";
+        cardResultDisplay.lastNameTxt.text = "";
+        cardResultDisplay.speciesTxt.text = "";
+        cardResultDisplay.birthDateTxt.text = "";
+        cardResultDisplay.isValidText.text = "";
+        cardResultDisplay.isValidText.color = Color.black;
+
+        testResultDisplay.TestTypeText.text = "";
+        testResultDisplay.testResultText.text = "";
+        testResultDisplay.testResultText.color = Color.black;
     }
 }

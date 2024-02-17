@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24431fb05cd5bef4ba73de6800391b39, type: 3}
+  m_Name: DIALOG_HighNPC
+  m_EditorClassIdentifier: 
+  greetings:
+  - '"..."'
+  - Did you know Wiikoes have half their weights of fur?
+  acquiesce:
+  - Suuuure
+  - We'all made of the same stardust !
+  - Will do dude
+  thanks:
+  - Bro the stars align!
+  - The Universe smile upon us !
+  - I saw this happend in the Nebula.
+  insist: []
+  threats:
+  - The Cosmic deities will remember that.
+  - I am imbued with starlight, don't push me.
+  supplications: []
+  apologies: []
+  noIDCard:
+  - Just look in my mind pal
+  - There is no Identity among the stars
+  - I realized ID cards are tools of Nolybab
+  refusalAlcoholTest:
+  - Paaall nooo I did the test already!
+  - Again? Ypu work for Nolybab or ?
+  - Fayaganjah?
+  refusalDrugTest:
+  - Fayaganjah!
+  - You probed me already pal.
+  protestAlcoholTestResult:
+  - Fayaa does it matter in the scope of things ?
+  - It helps me go dowwn mate...
+  - Fayaganjah!
+  protestDrugTestResult:
+  - Your mind is closed pal !
+  - I am connected to the Universe, I have thibgs to say!

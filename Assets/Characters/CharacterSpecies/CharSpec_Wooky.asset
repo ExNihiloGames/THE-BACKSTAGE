@@ -20,5 +20,12 @@ MonoBehaviour:
   - Jenny
   - Jean
   - Josh
-  lastNameList: []
+  lastNameList:
+  - Nori
+  - Kazam
+  - Burass
+  - Mohican
+  - Nodei
+  - Adkav
+  - Vidok
   spriteList: []

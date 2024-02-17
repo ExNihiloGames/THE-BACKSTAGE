@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef03881c625fe1a47a3403940fecf8df, type: 3}
+  m_Name: DIALOG_DrunkNPC
+  m_EditorClassIdentifier: 
+  greetings:
+  - Heeeeyy yoouuu !
+  - How are YuO so-so bIIGgg ?
+  - E-Evning ! Or MoRning ?
+  - I'm the KeeyyMasteeerrr !!!
+  acquiesce:
+  - S-s-sure!
+  - LeeEETssss Goooo!
+  - ...
+  - I'm the KeeyyMasteeerrr !!!
+  thanks:
+  - ...
+  - Thanks buddy *hic* ! Y-you a great P-pal!
+  - I'm the KeeyyMasteeerrr !!!
+  insist: []
+  threats:
+  - NooOO I gonna h-have yourr h-head !
+  - ...
+  - '*hic*'
+  - I'm the KeeyyMasteeerrr !!!
+  supplications: []
+  apologies: []
+  noIDCard:
+  - B--but *hic*, I Ha-had it just bEEfore *hic*.
+  - Ohh nooo!
+  - I'm the KeeyyMasteeerrr !!!
+  refusalAlcoholTest:
+  - I.. I'm not d-d-drunk... You're drunk !
+  - He... I did.. that...thing
+  refusalDrugTest:
+  - He... I did.. that...thing
+  - Hahaha ! I'm not h--high, Im juust D-drunk!
+  protestAlcoholTestResult:
+  - Roohhh
+  - II amm the Keeyy Massteerr !!
+  protestDrugTestResult:
+  - Roohhh
+  - II amm the Keeyy Massteerr !!

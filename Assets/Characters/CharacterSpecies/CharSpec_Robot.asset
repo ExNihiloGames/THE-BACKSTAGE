@@ -13,3 +13,20 @@ MonoBehaviour:
   m_Name: CharSpec_Robot
   m_EditorClassIdentifier: 
   displayName: Robot
+  firstNameList:
+  - Unit 15X
+  - Unit 35J
+  - Unit 48U
+  - Unit 69S
+  - Unit34I
+  - Unit 101C
+  - Unit404F
+  lastNameList:
+  - MOD-HU
+  - MOD-JO
+  - MOD-UL
+  - MOD-AL
+  - MOD-ULO
+  - MOD-US
+  - MOD-OR
+  spriteList: []

@@ -13,3 +13,22 @@ MonoBehaviour:
   m_Name: CharSpec_Humanoid
   m_EditorClassIdentifier: 
   displayName: Humanoid
+  firstNameList:
+  - Robert
+  - Rob
+  - Dorothy
+  - Isidore
+  - Dora
+  - Pandora
+  - Theodore
+  - Hodoorr
+  - Dorianne
+  lastNameList:
+  - Serph
+  - Dickens
+  - Jackson
+  - Dupays
+  - Mnoye
+  - Yuhi
+  - Lhaama
+  spriteList: []

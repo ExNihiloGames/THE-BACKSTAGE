@@ -13,4 +13,14 @@ MonoBehaviour:
   m_Name: CharGen_PseudoRandomWeighted
   m_EditorClassIdentifier: 
   characterCreators:
-    weightedList: []
+    weightedList:
+    - value: {fileID: 11400000, guid: 080dc54e7b958c841858440e344b4818, type: 2}
+      weight: 3
+    - value: {fileID: 11400000, guid: 1a4b85e9ea05d24449f912c13810b670, type: 2}
+      weight: 1
+    - value: {fileID: 11400000, guid: 3b3aabc12aeae314db902bb3dbeea5d2, type: 2}
+      weight: 1
+    - value: {fileID: 11400000, guid: 827ef4cfaffc4d944af6b87dd30cd84b, type: 2}
+      weight: 1
+    - value: {fileID: 11400000, guid: 7b5bca34dd2772141bb18c25cf47a85d, type: 2}
+      weight: 1
