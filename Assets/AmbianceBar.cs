@@ -7,20 +7,15 @@ public class AmbianceBar : MonoBehaviour
 {
 
     public Slider slider;
+    public Gradient gradient; //optionel
+    public Image fill; //optionel
 
-    public float ambiance_level;
-
-    private void Update()
-    {
-        ambiance_level = slider.value;
-    }
-
-    public void SetMaxAmbiance()
+    public void SetMaxAmbianceLevel()
     {
         slider.value = slider.maxValue;
     }
 
-    public void SetMinAmbiance()
+    public void SetMinAmbianceLevel()
     {
         slider.value = slider.minValue;
     }
@@ -30,13 +25,16 @@ public class AmbianceBar : MonoBehaviour
         slider.value += percentage;
     }
 
-    public void SetAmbiance(float percentage)
+    public void SetAmbianceLevel(float percentage)
     {
         slider.value = percentage;
+
+        FillAutoUpdate();
     }
 
-    public void SetAmbiance(int ambiance_level)
+    private void FillAutoUpdate() //optionel
     {
-        slider.value = ambiance_level;
+        fill.color = gradient.Evaluate(slider.normalizedValue);
     }
+
 }
