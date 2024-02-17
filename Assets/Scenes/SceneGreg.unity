@@ -5627,6 +5627,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1487151761}
+  - component: {fileID: 1487151762}
   m_Layer: 0
   m_Name: DialogManager
   m_TagString: Untagged
@@ -5643,12 +5644,34 @@ Transform:
   m_GameObject: {fileID: 1487151760}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 43.2, z: -32.6}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1487151762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487151760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95c11f63212e9004f884e850e07973ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerDialogs: {fileID: 11400000, guid: c139dad7e387e874493fc52bb6b6b449, type: 2}
+  calmNPCDialogs: {fileID: 11400000, guid: cb2d748eb87ac30469249bc719cb1f14, type: 2}
+  politeNPCDialogs: {fileID: 11400000, guid: 96ec9399f88d38349a9eae7c09460992, type: 2}
+  angryNPCDialogs: {fileID: 11400000, guid: 5d65f42ef652c794698bf4a8db637204, type: 2}
+  drunkNPCDialogs: {fileID: 11400000, guid: ae6968711089df145a6d1b3839a4528f, type: 2}
+  highNPCDialogs: {fileID: 11400000, guid: 7523f679237078847bbd8a3cfd0bf991, type: 2}
+  richSaysHighProba: 0.335
+  angrySaysHighProba: 0.335
+  othersSaysHighProba: 0.804
+  guestProtestRejectionProba: 0.67
 --- !u!1 &1517772090
 GameObject:
   m_ObjectHideFlags: 0

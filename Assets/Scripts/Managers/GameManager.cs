@@ -45,7 +45,6 @@ public class GameManager : MonoBehaviour
     {
         AcceptRejectDebugPanel.accepted += OnChoice;
         NExtGuestClickZone.Clicked += CallNextGuest;
-        CharacterDisplay.ReadyToDisplay +=
 
         guestInQueue = new List<Character>();
         guestInBar = new List<Character>();
@@ -55,6 +54,17 @@ public class GameManager : MonoBehaviour
             Character character = characterGenerator.Generate();
             guestInQueue.Add(character);
         }
+    }
+
+    public void CallNextGuest()
+    {
+        if (currentGuest == null)
+        {
+            OnGuestShowUP?.Invoke(guestInQueue[0]);
+            currentGuest = guestInQueue[0];
+            Debug.Log("New Guest at the bar: " + currentGuest.characterSpecie.displayName);
+            Debug.Log("Ambiance influence: " + currentGuest.ambianceScore);
+        }        
     }
 
     void OnChoice(bool accept)
@@ -75,15 +85,7 @@ public class GameManager : MonoBehaviour
             guestInQueue.RemoveAt(0);
             currentGuest = null;
             AddGuestToQueue();
-        }        
-    }
-
-    public void CallNextGuest()
-    {
-        OnGuestShowUP?.Invoke(guestInQueue[0]);
-        currentGuest = guestInQueue[0];
-        Debug.Log("New Guest at the bar: " + currentGuest.characterSpecie.displayName);
-        Debug.Log("Ambiance influence: " + currentGuest.ambianceScore);
+        }
     }
 
     void AddGuestToBar(Character character)
@@ -109,7 +111,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Ambiance in bar: " + m_ambiance);
     }
 
-    public void RequestDialog(bool characterDisplayState)
+    public void DebugCharacterDisplayState(bool characterDisplayState)
     {
         string isReady = characterDisplayState ? "READY" : "NOT READY";
         Debug.Log("Character Display is " + isReady);

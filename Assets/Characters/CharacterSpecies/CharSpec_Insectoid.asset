@@ -13,3 +13,20 @@ MonoBehaviour:
   m_Name: CharSpec_Insectoid
   m_EditorClassIdentifier: 
   displayName: Insectoid
+  firstNameList:
+  - Arachnus
+  - Mantis
+  - Scolopendra
+  - Anti
+  - Flykes
+  - Moth
+  - Hooper
+  lastNameList:
+  - Arachnae
+  - Xulix
+  - Stingus
+  - Phobias
+  - Infesti
+  - Hornet
+  - Judipos
+  spriteList: []

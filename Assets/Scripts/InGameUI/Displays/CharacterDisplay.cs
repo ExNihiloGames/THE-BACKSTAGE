@@ -7,10 +7,10 @@ using UnityEngine.UI;
 
 public class CharacterDisplay : MonoBehaviour, IPointerDownHandler, IDropHandler
 {
-    public static event Action<bool> ReadyToDisplay;
-
     public GameObject idCardTemplate;
 
+    GameManager gameManager;
+    DialogManager dialogManager;
     Character currentCharater;
     RectTransform rectTransform;
 
@@ -25,15 +25,17 @@ public class CharacterDisplay : MonoBehaviour, IPointerDownHandler, IDropHandler
         GameManager.OnGuestShowUP += LoadCharacter;
         GameManager.OnGuestAccepted += UnloadCharacter;
         GameManager.OnGuestRejected += UnloadCharacter;
+        gameManager = GameManager.Instance;
+        dialogManager= DialogManager.Instance;
         rectTransform = GetComponent<RectTransform>();
-        ReadyToDisplay?.Invoke(true);
+        gameManager.DebugCharacterDisplayState(true);
     }
 
     void LoadCharacter(Character character)
     {
         currentCharater = character;
         GetComponent<Image>().enabled = true;
-        ReadyToDisplay?.Invoke(false);
+        gameManager.DebugCharacterDisplayState(false);
     }
 
     void UnloadCharacter()
@@ -43,28 +45,30 @@ public class CharacterDisplay : MonoBehaviour, IPointerDownHandler, IDropHandler
         hasHandedId = false;
         hasBeenAlcoholTested = false;
         hasBeenDrugTested = false;
-        ReadyToDisplay?.Invoke(true);
+        gameManager.DebugCharacterDisplayState(true);
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("HI"); // Request DialogManager
         if (currentCharater.hasID)
         {
             if (!hasHandedId)
             {
-                Debug.Log("ID? Sure. Here it is"); // Request DialogManager
+                Debug.Log("ID? Sure. Here it is");
+                dialogManager.RequestNPCDialog(DialogStyle.Acquiesce);
                 GenerateID();
                 hasHandedId = true;
             }
             else
             {
-                Debug.Log("Dude I Already gave it to you"); // Request DialogManager
+                Debug.Log("Dude I Already gave it to you"); // Request DialogManager (???)
             }
         }
         else
         {
-            Debug.Log("Heu... I don't have it on me but if you let me pass I won't cause you trouble"); // Request DialogManager
+            Debug.Log("Heu... I don't have it on me but if you let me pass I won't cause you trouble");
+            dialogManager.RequestNPCDialog(DialogStyle.NoIDCard);
+            dialogManager.RequestPlayerDialog(DialogStyle.NoIDCard);
         }
     }
 
@@ -76,7 +80,9 @@ public class CharacterDisplay : MonoBehaviour, IPointerDownHandler, IDropHandler
             {
                 if (!hasBeenAlcoholTested || !hasBeenDrugTested)
                 {
-                    Debug.Log("Pfff that's really not necessary..."); // Request DialogManager
+
+                    Debug.Log("Pfff that's really not necessary...");
+                    dialogManager.RequestNPCDialog(DialogStyle.Acquiesce);
                     TestingItem testEquipment = eventData.pointerDrag.GetComponent<TestingItem>();
                     switch (testEquipment.testEquipmentType)
                     {
@@ -89,7 +95,9 @@ public class CharacterDisplay : MonoBehaviour, IPointerDownHandler, IDropHandler
                             }
                             else
                             {
-                                Debug.Log("Again? What you like the smell of my breath so much ?"); // Request DialogManager
+                                Debug.Log("Again? What you like the smell of my breath so much ?");
+                                dialogManager.RequestNPCDialog(DialogStyle.RefusalAlcoholTest);
+
                             }
                             break;
 
@@ -102,19 +110,21 @@ public class CharacterDisplay : MonoBehaviour, IPointerDownHandler, IDropHandler
                             }
                             else
                             {
-                                Debug.Log("Yes, This is my natural state, thanks. No need to try that again."); // Request DialogManager
+                                Debug.Log("Yes, This is my natural state, thanks. No need to try that again.");
+                                dialogManager.RequestNPCDialog(DialogStyle.RefusalDrugTest);
                             }
                             break;
                     }
                 }
                 else
                 {
-                    Debug.Log("Hey Listen I did all your dumb tests already. Just let me in"); // Request DialogManager
+                    Debug.Log("Hey Listen I did all your dumb tests already. Just let me in");
                 }
             }
             else if (eventData.pointerDrag.GetComponent<IDCard>() != null)
             {
-                Debug.Log("Thanks"); // Request DialogManager
+                Debug.Log("Thanks");
+                dialogManager.RequestNPCDialog(DialogStyle.Thanks);
                 idHandedBack = true;
                 Destroy(eventData.pointerDrag);
             }

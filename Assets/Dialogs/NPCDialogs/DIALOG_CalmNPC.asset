@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdf6550e23fa2764a95aa12582e1aeca, type: 3}
+  m_Name: DIALOG_CalmNPC
+  m_EditorClassIdentifier: 
+  greetings:
+  - Hello.
+  - Hi.
+  - Evening.
+  acquiesce:
+  - Sure thing.
+  - Yes.
+  - Of course.
+  thanks:
+  - Thank you.
+  insist: []
+  threats:
+  - Is that really necessary ?
+  - Oh, well.
+  - You could let me in.
+  supplications: []
+  apologies: []
+  noIDCard:
+  - I don't have it...
+  - I forgot it...
+  - Well, s***...
+  refusalAlcoholTest:
+  - I already passed this test.
+  refusalDrugTest:
+  - I already passed this test.
+  protestAlcoholTestResult:
+  - It was just one drink...
+  - Can I still go in ?
+  - I am not drunk thoug.
+  protestDrugTestResult:
+  - It was just this one shroom...
+  - It registered ? They said it was untraceable!
+  - A little more fun you know ?

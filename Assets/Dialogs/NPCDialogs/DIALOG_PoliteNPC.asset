@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7ba99a7a2d18b249b15a009ed33baae, type: 3}
+  m_Name: DIALOG_PoliteNPC
+  m_EditorClassIdentifier: 
+  greetings:
+  - Well met good sir.
+  - A pleasure to meet you.
+  - Evening compatriot.
+  - Hello There !
+  acquiesce:
+  - Naturally.
+  - Of course.
+  - It's my pleasure.
+  thanks:
+  - I am thankful to you.
+  - Appreciated !
+  - Highest thanks dear guard !
+  insist: []
+  threats:
+  - I am not quite sure this is reasonnable.
+  - A dangerous course of actions.
+  - I would reconsider my options at your place.
+  - I will be back, sir.
+  supplications: []
+  apologies: []
+  noIDCard:
+  - Well that is unfortunate. I do not have it.
+  - It seems I do not carry it with me.
+  - In my hurry, it looks like I did not take it with me.
+  refusalAlcoholTest:
+  - Kind Sir, I already performed that test.
+  refusalDrugTest:
+  - Kind Sir, I already performed that test.
+  protestAlcoholTestResult:
+  - Your machine must be mistaken
+  - How does that prevent me from going into a bar ?
+  protestDrugTestResult:
+  - Your machine must be mistaken
+  - That is not an impairment for me.

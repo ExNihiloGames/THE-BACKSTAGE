@@ -6,13 +6,12 @@ using UnityEngine.EventSystems;
 public class TestsDistributor : MonoBehaviour, IPointerDownHandler
 {
     public GameObject TestEquipment;
-
-    private GameManager gameManager;
+    private DialogManager dialogManager;
     private RectTransform rectTransform;
 
     private void Start()
     {
-        gameManager = GameManager.Instance;
+        dialogManager = FindObjectOfType<DialogManager>();
         rectTransform = GetComponent<RectTransform>();
     }
 
@@ -23,6 +22,6 @@ public class TestsDistributor : MonoBehaviour, IPointerDownHandler
 
         nT_Rect.SetParent(rectTransform.parent);
         nT_Rect.anchoredPosition = rectTransform.anchoredPosition;
-        gameManager.RequestDialog();
+        dialogManager.RequestPlayerDialog(DialogStyle.PerformTest);
     }
 }
