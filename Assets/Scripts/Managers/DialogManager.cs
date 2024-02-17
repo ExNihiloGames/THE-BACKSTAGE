@@ -22,7 +22,7 @@ public class DialogManager : MonoBehaviour
     [SerializeField][Range(0f, 1f)] float guestProtestRejectionProba;
 
 
-    public static event Action<Speaker, string> OnDialogBoxDisplayRequest;
+    public static event Action<DialogInstruction> OnDialogBoxDisplayRequest;
     public static event Action OnDialogBoxClearRequest;
 
     private static DialogManager _instance;
@@ -53,6 +53,7 @@ public class DialogManager : MonoBehaviour
 
     void SetCurrentCharacter(Character character)
     {
+        RequestClearDialogBox();
         currentCharacter = character;
         string trait = currentCharacter.characterTrait.displayName;
         CharacterEffect effect = character.characterEffect;
@@ -85,21 +86,41 @@ public class DialogManager : MonoBehaviour
     public void RequestPlayerDialog(DialogStyle dialogStyle)
     {
         string dialog = dialogGenerator.GetPlayerRandomDialog(dialogStyle);
-        OnDialogBoxDisplayRequest?.Invoke(Speaker.Player, dialog);
+        OnDialogBoxDisplayRequest?.Invoke(new DialogInstruction(Speaker.Player, dialog));
     }
 
     public void RequestNPCDialog(DialogStyle dialogStyle)
     {
         string dialog = dialogGenerator.GetNPCRandomDialog(currentCharacter.characterEffect, dialogStyle);
-        OnDialogBoxDisplayRequest?.Invoke(Speaker.NPC, dialog);
+        OnDialogBoxDisplayRequest?.Invoke(new DialogInstruction(Speaker.NPC, dialog));
+    }
+
+    public void RequestClearDialogBox()
+    {
+        OnDialogBoxClearRequest?.Invoke();
     }
 }
+
+
+public struct DialogInstruction
+{
+    public Speaker speaker;
+    public string text;
+
+    public DialogInstruction(Speaker speaker, string text)
+    {
+        this.speaker = speaker;
+        this.text = text;
+    }
+}
+
 
 public enum Speaker
 {
     Player,
     NPC
 }
+
 
 public enum DialogStyle
 {
@@ -111,7 +132,7 @@ public enum DialogStyle
     Insist,
     Threats,
     Supplication,
-    Apologies,
+    AskIDCard,
     NoIDCard,
     PerformTest,
     RefusalAlcoholTest,

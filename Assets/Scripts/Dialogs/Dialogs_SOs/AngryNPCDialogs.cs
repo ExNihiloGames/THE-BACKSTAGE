@@ -11,7 +11,6 @@ public class AngryNPCDialogs : ScriptableObject
     public List<string> insist = new List<string>();
     public List<string> threats = new List<string>();
     public List<string> supplications = new List<string>();
-    public List<string> apologies = new List<string>();
     public List<string> noIDCard = new List<string>();
     public List<string> refusalAlcoholTest = new List<string>();
     public List<string> refusalDrugTest = new List<string>();
@@ -40,7 +39,6 @@ public class AngryNPCDialogs : ScriptableObject
         angryNPC[DialogStyle.Insist] = insist;
         angryNPC[DialogStyle.Threats] = threats;
         angryNPC[DialogStyle.Supplication] = supplications;
-        angryNPC[DialogStyle.Apologies] = apologies;
         angryNPC[DialogStyle.NoIDCard] = noIDCard;
         angryNPC[DialogStyle.RefusalAlcoholTest] = refusalAlcoholTest;
         angryNPC[DialogStyle.RefusalDrugTest] = refusalDrugTest;

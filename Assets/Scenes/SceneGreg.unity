@@ -6041,6 +6041,7 @@ GameObject:
   - component: {fileID: 1613285227}
   - component: {fileID: 1613285226}
   - component: {fileID: 1613285228}
+  - component: {fileID: 1613285229}
   m_Layer: 5
   m_Name: DialogBox
   m_TagString: Untagged
@@ -6112,13 +6113,28 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1613285224}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d2ff820d69d75f4aa874244bfa350bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   DialogBubble: {fileID: 5475200984233701003, guid: abfc780377e08764da5c3f1c309e7f87,
     type: 3}
+--- !u!114 &1613285229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613285224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d50cce0926f1d04b83462244ff01852, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BubbleBase: {fileID: 1636917153834194785, guid: d047c112aa88e0840b086f80cdc26cf2,
+    type: 3}
+  marginBubbles: 20
 --- !u!1 &1684960558
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,10 +7,12 @@ public class Bubble : MonoBehaviour
 {
     public TextMeshProUGUI textComponent;
     public float textSpeed = .05f;
-    private bool isDialogueDisplaying = false;
     private Coroutine TL;
     private string text;
     private RectTransform imageRectTransform;
+
+    private bool m_isDialogueDisplaying = false;
+    public bool isDialogueDisplaying { get { return m_isDialogueDisplaying; } }
 
     public void SetText(string givenText)
     {
@@ -32,7 +34,7 @@ public class Bubble : MonoBehaviour
         AdaptBubbleSize();
         textComponent.text = string.Empty; //On réefface pour que le texte soit tapé via la coroutine
 
-        if (isDialogueDisplaying)
+        if (m_isDialogueDisplaying)
         {
             Abbreviate();
         }
@@ -46,7 +48,7 @@ public class Bubble : MonoBehaviour
     {
         StopCoroutine(TL);
         textComponent.text = text;
-        isDialogueDisplaying = false;
+        m_isDialogueDisplaying = false;
 
         return true;
     }
@@ -54,7 +56,7 @@ public class Bubble : MonoBehaviour
     public bool GetIsDialogueDisplaying()
     {
 
-        return isDialogueDisplaying;
+        return m_isDialogueDisplaying;
     }
 
     private void AdaptBubbleSize()
@@ -117,13 +119,12 @@ public class Bubble : MonoBehaviour
 
     IEnumerator TypeLine()
     {
-        isDialogueDisplaying = true;
-
+        m_isDialogueDisplaying = true;
         foreach (char c in text.ToCharArray())
         {
             textComponent.text += c;
             yield return new WaitForSeconds(textSpeed);
         }
-        isDialogueDisplaying = false;
+        m_isDialogueDisplaying = false;
     }
 }

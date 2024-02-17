@@ -12,13 +12,11 @@ public class PlayerDialogs : ScriptableObject
     public List<string> accept = new List<string>();
     public List<string> refuse = new List<string>();
     public List<string> threats = new List<string>();
-    public List<string> apologies = new List<string>();
+    public List<string> askIDCard = new List<string>();
     public List<string> noIDCard = new List<string>();
     public List<string> performTest = new List<string>();
     public List<string> refusalAlcoholTest = new List<string>();
     public List<string> refusalDrugTest = new List<string>();
-    public List<string> protestAlcoholTestResult = new List<string>();
-    public List<string> protestDrugTestResult = new List<string>();
 
     Dictionary<DialogStyle, List<string>> playerDialogs = new Dictionary<DialogStyle, List<string>>();
 
@@ -43,12 +41,10 @@ public class PlayerDialogs : ScriptableObject
         playerDialogs[DialogStyle.Accept] = accept;
         playerDialogs[DialogStyle.Refuse] = refuse;
         playerDialogs[DialogStyle.Threats] = threats;
-        playerDialogs[DialogStyle.Apologies] = apologies;
+        playerDialogs[DialogStyle.AskIDCard] = askIDCard;
         playerDialogs[DialogStyle.NoIDCard] = noIDCard;
         playerDialogs[DialogStyle.PerformTest] = performTest;
         playerDialogs[DialogStyle.RefusalAlcoholTest] = refusalAlcoholTest;
         playerDialogs[DialogStyle.RefusalDrugTest] = refusalDrugTest;
-        playerDialogs[DialogStyle.ProtestAlcoholTestResult] = protestAlcoholTestResult;
-        playerDialogs[DialogStyle.ProtestDrugTestResult] = protestDrugTestResult;
     }
 }

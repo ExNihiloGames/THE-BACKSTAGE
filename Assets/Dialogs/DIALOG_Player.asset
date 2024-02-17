@@ -24,10 +24,11 @@ MonoBehaviour:
   accept:
   - You are clear to enter.
   refuse:
-  - That's a no.
+  - Bounce Off.
   threats:
   - Go home.
-  apologies: []
+  askIDCard:
+  - Galacatic Card, please.
   noIDCard:
   - ID is mandatory.
   performTest:
@@ -36,5 +37,3 @@ MonoBehaviour:
   - Your alcohol test is positive.
   refusalDrugTest:
   - Your drugs test is positive.
-  protestAlcoholTestResult: []
-  protestDrugTestResult: []

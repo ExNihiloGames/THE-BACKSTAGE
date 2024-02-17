@@ -11,7 +11,6 @@ public class PoliteNPCDialogs : ScriptableObject
     public List<string> insist = new List<string>();
     public List<string> threats = new List<string>();
     public List<string> supplications = new List<string>();
-    public List<string> apologies = new List<string>();
     public List<string> noIDCard = new List<string>();
     public List<string> refusalAlcoholTest = new List<string>();
     public List<string> refusalDrugTest = new List<string>();
@@ -40,7 +39,6 @@ public class PoliteNPCDialogs : ScriptableObject
         politeNPC[DialogStyle.Insist] = insist;
         politeNPC[DialogStyle.Threats] = threats;
         politeNPC[DialogStyle.Supplication] = supplications;
-        politeNPC[DialogStyle.Apologies] = apologies;
         politeNPC[DialogStyle.NoIDCard] = noIDCard;
         politeNPC[DialogStyle.RefusalAlcoholTest] = refusalAlcoholTest;
         politeNPC[DialogStyle.RefusalDrugTest] = refusalDrugTest;

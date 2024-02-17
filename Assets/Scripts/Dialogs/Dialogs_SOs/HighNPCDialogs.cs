@@ -11,7 +11,6 @@ public class HighNPCDialogs : ScriptableObject
     public List<string> insist = new List<string>();
     public List<string> threats = new List<string>();
     public List<string> supplications = new List<string>();
-    public List<string> apologies = new List<string>();
     public List<string> noIDCard = new List<string>();
     public List<string> refusalAlcoholTest = new List<string>();
     public List<string> refusalDrugTest = new List<string>();
@@ -40,7 +39,6 @@ public class HighNPCDialogs : ScriptableObject
         highNPC[DialogStyle.Insist] = insist;
         highNPC[DialogStyle.Threats] = threats;
         highNPC[DialogStyle.Supplication] = supplications;
-        highNPC[DialogStyle.Apologies] = apologies;
         highNPC[DialogStyle.NoIDCard] = noIDCard;
         highNPC[DialogStyle.RefusalAlcoholTest] = refusalAlcoholTest;
         highNPC[DialogStyle.RefusalDrugTest] = refusalDrugTest;

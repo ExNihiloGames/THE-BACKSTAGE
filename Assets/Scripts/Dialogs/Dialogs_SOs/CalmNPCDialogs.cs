@@ -11,7 +11,6 @@ public class CalmNPCDialogs : ScriptableObject
     public List<string> insist = new List<string>();
     public List<string> threats = new List<string>();
     public List<string> supplications = new List<string>();
-    public List<string> apologies = new List<string>();
     public List<string> noIDCard = new List<string>();
     public List<string> refusalAlcoholTest = new List<string>();
     public List<string> refusalDrugTest = new List<string>();
@@ -40,7 +39,6 @@ public class CalmNPCDialogs : ScriptableObject
         calmNPC[DialogStyle.Insist] = insist;
         calmNPC[DialogStyle.Threats] = threats;
         calmNPC[DialogStyle.Supplication] = supplications;
-        calmNPC[DialogStyle.Apologies] = apologies;
         calmNPC[DialogStyle.NoIDCard] = noIDCard;
         calmNPC[DialogStyle.RefusalAlcoholTest] = refusalAlcoholTest;
         calmNPC[DialogStyle.RefusalDrugTest] = refusalDrugTest;

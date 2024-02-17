@@ -50,6 +50,10 @@ public class CharacterDisplay : MonoBehaviour, IPointerDownHandler, IDropHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        if (!hasHandedId)
+        {
+            dialogManager.RequestPlayerDialog(DialogStyle.AskIDCard);
+        }            
         if (currentCharater.hasID)
         {
             if (!hasHandedId)

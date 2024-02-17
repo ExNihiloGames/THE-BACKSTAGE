@@ -13,50 +13,20 @@ public class DialogBox : MonoBehaviour
     private int bubblesDisplayed = 0;
     RectTransform panelRectTransform;
     private List<GameObject> listOfBubbles = new List<GameObject>();
-    bool bubbleSide = false;
+    private Queue<DialogInstruction> dialogStack = new Queue<DialogInstruction>();
+    Speaker bubbleSide;
     Bubble previousBubble;
     public int marginBubbles = 20;
     private Color bubbleBGColorLeft = Color.red;
     private Color bubbleBGColorRight = Color.blue;
     private Color textColor = Color.white;
 
-    /*    private static GameManager _instance;
-        public static GameManager Instance { get { return _instance; } }
-
-        private void Awake()
-        {
-            if (_instance != null && _instance != this)
-            {
-                Destroy(gameObject);
-            }
-            else
-            {
-                _instance = this;
-            }
-        }
-    */
-
-    // Tableau de lignes de dialogue à afficher
-    private int currentLineIndex = 0;
-    private string[] dialogueLines =
-    {
-        "Salut, ça va ?",
-        "Ca va, et toi ?",
-        "Ca va très bien merci !",
-        "Cool !",
-        "Oui",
-        "Ca va très bien merci !Ca va très bien merci !Ca va très bien merci !",
-        "Oui",
-        "Ca va très bien merci !Ca va très bien merci !Ca va très bien merci !",
-        "CoolCoolCool !"
-    };
-
     void Start()
     {
+        DialogManager.OnDialogBoxDisplayRequest += AddToQueue;
+        DialogManager.OnDialogBoxClearRequest += ClearDialogBox;
         panelRectTransform = GetComponent<RectTransform>();
         BubbleBase.SetActive(false);
-
-        CreateNewBubble(dialogueLines[0]);
     }
 
     private Bubble GetPreviousBubble()
@@ -74,28 +44,46 @@ public class DialogBox : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Lit la prochaine ligne de dialogue lorsque le joueur appuie sur une touche
-        if (Input.GetKeyDown(KeyCode.Space))
+        DialogInstruction nextDialog;
+
+        if (previousBubble == null)
         {
-            if(currentLineIndex < dialogueLines.Length)
+            if (dialogStack.TryDequeue(out nextDialog))
             {
-                previousBubble = GetPreviousBubble();
-                if (previousBubble.GetIsDialogueDisplaying())
+                CreateNewBubble(nextDialog);
+            }
+        }
+        else
+        {
+            if (!previousBubble.isDialogueDisplaying)
+            {
+                if (dialogStack.TryDequeue(out nextDialog))
                 {
-                    previousBubble.Abbreviate();    //Abrège frère.
-                } else
-                {
-                    CreateNewBubble(dialogueLines[currentLineIndex]);
+                    CreateNewBubble(nextDialog);
                 }
-            } else
-            {
-                //todo: retirer toutes les bulles
             }
         }
     }
 
-    void CreateNewBubble(string text = "")
+    void AddToQueue(DialogInstruction dialog)
     {
+        dialogStack.Enqueue(dialog);
+    }
+
+    void ClearDialogBox()
+    {
+        dialogStack.Clear();
+        foreach (GameObject aBubble in listOfBubbles)
+        {
+            Destroy(aBubble);
+        }
+        listOfBubbles.Clear();
+    }
+
+    void CreateNewBubble(DialogInstruction dialog)
+    {
+        bubbleSide = dialog.speaker;
+        string text = dialog.text;
 
         GameObject newBubble = Instantiate(BubbleBase, panelRectTransform.position, Quaternion.identity); //copie du prefab Bubble (GameObject)
 
@@ -122,9 +110,7 @@ public class DialogBox : MonoBehaviour
             //gestion des autres bubbles
             ClimbPreviousBubbles(newBubbleRectTransform.rect.height); //on remonte les autres bulles relativement a la hauteur de la nouvelle bulle
             listOfBubbles.Add(newBubble);   //on l'ajoute a la liste des Bubbles affichés
-            Debug.Log("distance to climb: " + newBubbleRectTransform.rect.height);
-
-            currentLineIndex++;
+            // Debug.Log("distance to climb: " + newBubbleRectTransform.rect.height);
         }
         else
         {
@@ -138,17 +124,15 @@ public class DialogBox : MonoBehaviour
     private void PushToSide(Bubble newBubbleBubble)
     {
         //gestion du coté 
-        if (bubbleSide)
+        if (bubbleSide == Speaker.NPC)
         {
             //gauche
-            bubbleSide = !bubbleSide;
             newBubbleBubble.Position("left");
             newBubbleBubble.GetComponent<Bubble>().updateBackgroundColor(bubbleBGColorLeft);
         }
         else
         {
             //droite
-            bubbleSide = !bubbleSide;
             newBubbleBubble.Position("right");
             newBubbleBubble.GetComponent<Bubble>().updateBackgroundColor(bubbleBGColorRight);
         }

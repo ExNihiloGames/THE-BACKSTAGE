@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     Character currentGuest;
 
     public float ambiance => m_ambiance;
-    private float m_ambiance;
+    private float m_ambiance; // valeur qui va gérer la jauge. min = -ambianceJaugeRange/2; max=ambianceJaugeRange/2
 
     private void Awake()
     {
