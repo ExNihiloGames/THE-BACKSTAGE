@@ -63,12 +63,14 @@ public class DisplayScreen : MonoBehaviour
             if (testConducted == TestEquipmentType.Alcohol)
             {
                 dialogManager.RequestPlayerDialog(DialogStyle.RefusalAlcoholTest);
-                dialogManager.RequestNPCDialog(DialogStyle.ProtestAlcoholTestResult);
+                // dialogManager.RequestNPCDialog(DialogStyle.ProtestAlcoholTestResult);
+                StartCoroutine(DelayRequest(0.5f, DialogStyle.ProtestAlcoholTestResult));
             }
             else
             {
                 dialogManager.RequestPlayerDialog(DialogStyle.RefusalDrugTest);
-                dialogManager.RequestNPCDialog(DialogStyle.ProtestDrugTestResult);
+                // dialogManager.RequestNPCDialog(DialogStyle.ProtestDrugTestResult);
+                StartCoroutine(DelayRequest(0.5f, DialogStyle.ProtestDrugTestResult));
             }
         }
     }
@@ -85,5 +87,11 @@ public class DisplayScreen : MonoBehaviour
         testResultDisplay.TestTypeText.text = "";
         testResultDisplay.testResultText.text = "";
         testResultDisplay.testResultText.color = Color.black;
+    }
+
+    IEnumerator DelayRequest(float s, DialogStyle dialogstyle)
+    {
+        yield return new WaitForSeconds(s);
+        dialogManager.RequestNPCDialog(dialogstyle);
     }
 }
