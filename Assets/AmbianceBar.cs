@@ -10,6 +10,11 @@ public class AmbianceBar : MonoBehaviour
     public Gradient gradient; //optionel
     public Image fill; //optionel
 
+    private void Awake()
+    {
+        SetMinAmbianceLevel();
+    }
+
     public void SetMaxAmbianceLevel()
     {
         slider.value = slider.maxValue;
@@ -18,6 +23,16 @@ public class AmbianceBar : MonoBehaviour
     public void SetMinAmbianceLevel()
     {
         slider.value = slider.minValue;
+    }
+
+    public void SetMinAmbianceValue(float value)
+    {
+        slider.minValue = value;
+    }
+
+    public void SetMaxAmbianceValue(float value)
+    {
+        slider.maxValue = value;
     }
 
     public void AddAmbiance(float percentage)
