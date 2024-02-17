@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     [Header("Bar Settings")]
     [SerializeField] int maxGuests;
     [SerializeField] int ambianceJaugeRange;
+    public GameObject ambianceBar;
 
     public static event Action<Character> OnGuestShowUP;
     public static event Action OnGuestAccepted;
@@ -110,6 +111,9 @@ public class GameManager : MonoBehaviour
         m_ambiance = m_ambiance > ambianceJaugeRange / 2 ? ambianceJaugeRange / 2 : m_ambiance;
         m_ambiance = m_ambiance < -ambianceJaugeRange / 2 ? -ambianceJaugeRange / 2 : m_ambiance;
         Debug.Log("Ambiance in bar: " + m_ambiance);
+
+        //Todo: temporaire
+        ambianceBar.GetComponent<AmbianceBar>().SetAmbianceLevel(m_ambiance*2);
     }
 
     public void DebugCharacterDisplayState(bool characterDisplayState)
