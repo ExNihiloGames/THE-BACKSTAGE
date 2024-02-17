@@ -113,7 +113,7 @@ public class GameManager : MonoBehaviour
 
         //Todo: temporaire
         AmbianceBar ambianceBarComponent = ambianceBar.GetComponent<AmbianceBar>();
-        ambianceBarComponent.SetMinAmbianceValue(ambianceJaugeRange / 2);
+        ambianceBarComponent.SetMinAmbianceValue(0);
         ambianceBarComponent.SetMaxAmbianceValue(ambianceJaugeRange / 2);
         ambianceBarComponent.SetAmbianceLevel(m_ambiance);
     }
