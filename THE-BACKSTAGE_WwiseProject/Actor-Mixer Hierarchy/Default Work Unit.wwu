@@ -1,6 +1,469 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{15915837-C5A1-42C8-B5CC-15EFD83115CA}" SchemaVersion="119">
 	<AudioObjects>
-		<WorkUnit Name="Default Work Unit" ID="{15915837-C5A1-42C8-B5CC-15EFD83115CA}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{15915837-C5A1-42C8-B5CC-15EFD83115CA}" PersistMode="Standalone">
+			<ChildrenList>
+				<BlendContainer Name="Crowd_Ambience" ID="{A37BD055-AD0A-4B16-B60D-8B96E6133453}" ShortID="902410162">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B91C6D5E-AF19-4CE3-9EF2-317F072DABB5}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{391913D6-23EE-475D-8396-F470AC152AF9}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="The-Backstage_Sound_InGame_Ambience_Hardcore_Reverb_Loop_V1" ID="{98F8A45C-926C-4EBB-8D0E-9CAEFC2DF6F1}" ShortID="220952616">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B91C6D5E-AF19-4CE3-9EF2-317F072DABB5}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Menu_Bus" ID="{4E43B1E1-E344-4BCD-AE25-D471EAE89E0F}" WorkUnitID="{391913D6-23EE-475D-8396-F470AC152AF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="The-Backstage_Sound_InGame_Ambience_Hardcore_Reverb_Loop_V1" ID="{44017B84-5D7F-4BC4-96EF-4420B89C2B58}">
+									<Language>SFX</Language>
+									<AudioFile>The-Backstage_Sound_InGame_Ambience_Hardcore_Reverb_Loop_V1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="674930751"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="The-Backstage_Sound_InGame_Ambience_Hardcore_Reverb_Loop_V1" ID="{44017B84-5D7F-4BC4-96EF-4420B89C2B58}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="The-Backstage_Sound_InGame_Ambience_Normal_Loop_V1" ID="{D4741589-67D5-4797-9E01-8589CC52E6CE}" ShortID="277761799">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B91C6D5E-AF19-4CE3-9EF2-317F072DABB5}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{391913D6-23EE-475D-8396-F470AC152AF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="The-Backstage_Sound_InGame_Ambience_Normal_Loop_V1" ID="{7709C760-8420-4892-ABEB-1E8ACCB222B0}">
+									<Language>SFX</Language>
+									<AudioFile>The-Backstage_Sound_InGame_Ambience_Normal_Loop_V1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="975137458"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="The-Backstage_Sound_InGame_Ambience_Normal_Loop_V1" ID="{7709C760-8420-4892-ABEB-1E8ACCB222B0}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="The-Backstage_Sound_InGame_Ambience_StartBad_Loop_V1" ID="{8AB8BC53-D524-4C1A-8358-6F15764B31C8}" ShortID="382429019">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B91C6D5E-AF19-4CE3-9EF2-317F072DABB5}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{391913D6-23EE-475D-8396-F470AC152AF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="The-Backstage_Sound_InGame_Ambience_StartBad_Loop_V1" ID="{1CF1B5FA-DA85-4CE7-8D0C-CCD86A4B51F1}">
+									<Language>SFX</Language>
+									<AudioFile>The-Backstage_Sound_InGame_Ambience_StartBad_Loop_V1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="113023414"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="The-Backstage_Sound_InGame_Ambience_StartBad_Loop_V1" ID="{1CF1B5FA-DA85-4CE7-8D0C-CCD86A4B51F1}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+					<BlendTrackList>
+						<BlendTrack Name="Main_Crowd" ID="{A7E4FDC6-BF56-4D7E-A752-8844C089DD8A}" ShortID="110159852">
+							<PropertyList>
+								<Property Name="EnableCrossFading" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="LayerCrossFadeControlInput">
+									<ObjectRef Name="Crowd_Excitment" ID="{04713C7C-B0F3-4D8B-A0E5-791BFE2717CD}" WorkUnitID="{1390AB2D-0F77-4525-ACF3-788B13F17052}"/>
+								</Reference>
+							</ReferenceList>
+							<BlendTrackAssocList>
+								<BlendTrackAssoc>
+									<ItemRef Name="The-Backstage_Sound_InGame_Ambience_Normal_Loop_V1" ID="{D4741589-67D5-4797-9E01-8589CC52E6CE}"/>
+									<CrossfadingInfo>
+										<LeftEdgePos>0</LeftEdgePos>
+										<LeftFadingMode>Manual</LeftFadingMode>
+										<LeftFadingSegmentShape>Linear</LeftFadingSegmentShape>
+										<LeftFadingPos>9.98487140695915</LeftFadingPos>
+										<RightEdgePos>37.5201288244767</RightEdgePos>
+										<RightFadingMode>Automatic</RightFadingMode>
+										<RightFadingSegmentShape>Exp2</RightFadingSegmentShape>
+									</CrossfadingInfo>
+								</BlendTrackAssoc>
+								<BlendTrackAssoc>
+									<ItemRef Name="The-Backstage_Sound_InGame_Ambience_StartBad_Loop_V1" ID="{8AB8BC53-D524-4C1A-8358-6F15764B31C8}"/>
+									<CrossfadingInfo>
+										<LeftEdgePos>29.4685990338164</LeftEdgePos>
+										<LeftFadingMode>Automatic</LeftFadingMode>
+										<LeftFadingSegmentShape>Log2</LeftFadingSegmentShape>
+										<RightEdgePos>76.1674718196457</RightEdgePos>
+										<RightFadingMode>Automatic</RightFadingMode>
+										<RightFadingSegmentShape>Exp2</RightFadingSegmentShape>
+									</CrossfadingInfo>
+								</BlendTrackAssoc>
+								<BlendTrackAssoc>
+									<ItemRef Name="The-Backstage_Sound_InGame_Ambience_Hardcore_Reverb_Loop_V1" ID="{98F8A45C-926C-4EBB-8D0E-9CAEFC2DF6F1}"/>
+									<CrossfadingInfo>
+										<LeftEdgePos>60.5475040257649</LeftEdgePos>
+										<LeftFadingMode>Automatic</LeftFadingMode>
+										<LeftFadingSegmentShape>Log2</LeftFadingSegmentShape>
+										<RightEdgePos>100</RightEdgePos>
+										<RightFadingMode>Automatic</RightFadingMode>
+									</CrossfadingInfo>
+								</BlendTrackAssoc>
+							</BlendTrackAssocList>
+						</BlendTrack>
+					</BlendTrackList>
+				</BlendContainer>
+				<RandomSequenceContainer Name="Grognements_Videur" ID="{169C547A-27E9-4AC4-8189-9665E1D37364}" ShortID="1007434424">
+					<PropertyList>
+						<Property Name="Pitch" Type="int32">
+							<ValueList>
+								<Value>-200</Value>
+							</ValueList>
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{12BDCC49-ED62-4EF8-92B9-1DA744B5BDA6}"/>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+						<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="4"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B91C6D5E-AF19-4CE3-9EF2-317F072DABB5}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Menu_Bus" ID="{4E43B1E1-E344-4BCD-AE25-D471EAE89E0F}" WorkUnitID="{391913D6-23EE-475D-8396-F470AC152AF9}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="The-Backstage_Sound_InGame_Grognement_1" ID="{404D806B-6483-4C35-91EC-F1465B35D9CD}" ShortID="240999787">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B91C6D5E-AF19-4CE3-9EF2-317F072DABB5}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{391913D6-23EE-475D-8396-F470AC152AF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="The-Backstage_Sound_InGame_Grognement_1" ID="{C4CE414E-E1CC-415C-9C00-758EE4B1334F}">
+									<Language>SFX</Language>
+									<AudioFile>The-Backstage_Sound_InGame_Grognement_1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1028338563"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="The-Backstage_Sound_InGame_Grognement_1" ID="{C4CE414E-E1CC-415C-9C00-758EE4B1334F}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="The-Backstage_Sound_InGame_Grognement_2" ID="{8E38D7CA-3294-4125-A08C-F94D345DEF68}" ShortID="525222804">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B91C6D5E-AF19-4CE3-9EF2-317F072DABB5}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{391913D6-23EE-475D-8396-F470AC152AF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="The-Backstage_Sound_InGame_Grognement_2" ID="{071B6D51-233E-4905-8395-FC2937979F9F}">
+									<Language>SFX</Language>
+									<AudioFile>The-Backstage_Sound_InGame_Grognement_2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="286699997"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="The-Backstage_Sound_InGame_Grognement_2" ID="{071B6D51-233E-4905-8395-FC2937979F9F}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="The-Backstage_Sound_InGame_Grognement_3" ID="{44E3C8B0-6A84-467A-84F6-495336E6D4BB}" ShortID="545123229">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B91C6D5E-AF19-4CE3-9EF2-317F072DABB5}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{391913D6-23EE-475D-8396-F470AC152AF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="The-Backstage_Sound_InGame_Grognement_3" ID="{7127F326-2433-4D36-BB52-39CF7EE42515}">
+									<Language>SFX</Language>
+									<AudioFile>The-Backstage_Sound_InGame_Grognement_3.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="814563373"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="The-Backstage_Sound_InGame_Grognement_3" ID="{7127F326-2433-4D36-BB52-39CF7EE42515}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="The-Backstage_Sound_InGame_Grognement_4" ID="{4E49A6DE-452A-42CF-9165-718069E3D99D}" ShortID="163646353">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B91C6D5E-AF19-4CE3-9EF2-317F072DABB5}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{391913D6-23EE-475D-8396-F470AC152AF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="The-Backstage_Sound_InGame_Grognement_4" ID="{BDF89A0F-61E1-43FC-8B73-923B131D1A5B}">
+									<Language>SFX</Language>
+									<AudioFile>The-Backstage_Sound_InGame_Grognement_4.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="546559381"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="The-Backstage_Sound_InGame_Grognement_4" ID="{BDF89A0F-61E1-43FC-8B73-923B131D1A5B}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="The-Backstage_Sound_InGame_Grognement_5" ID="{79D78401-5D77-48A2-BFAA-5027D6CD72AD}" ShortID="216818829">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B91C6D5E-AF19-4CE3-9EF2-317F072DABB5}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{391913D6-23EE-475D-8396-F470AC152AF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="The-Backstage_Sound_InGame_Grognement_5" ID="{CCEA91C0-A489-4301-9471-F5BF16356EC5}">
+									<Language>SFX</Language>
+									<AudioFile>The-Backstage_Sound_InGame_Grognement_5.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="500785905"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="The-Backstage_Sound_InGame_Grognement_5" ID="{CCEA91C0-A489-4301-9471-F5BF16356EC5}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="The-Backstage_Sound_InGame_Grognement_6" ID="{D6170545-A043-467B-B0E5-42068F5DD5A7}" ShortID="451869758">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B91C6D5E-AF19-4CE3-9EF2-317F072DABB5}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{391913D6-23EE-475D-8396-F470AC152AF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="The-Backstage_Sound_InGame_Grognement_6" ID="{64EE03A8-F249-4E58-8DFF-4876327C8840}">
+									<Language>SFX</Language>
+									<AudioFile>The-Backstage_Sound_InGame_Grognement_6.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="470412252"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="The-Backstage_Sound_InGame_Grognement_6" ID="{64EE03A8-F249-4E58-8DFF-4876327C8840}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="The-Backstage_Sound_InGame_Grognement_7" ID="{A8136A4C-6619-4776-9F88-424CB46D07CE}" ShortID="46407946">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B91C6D5E-AF19-4CE3-9EF2-317F072DABB5}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{391913D6-23EE-475D-8396-F470AC152AF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="The-Backstage_Sound_InGame_Grognement_7" ID="{3CADB77A-54A8-4D7D-8A4B-6A5F10FCA2F5}">
+									<Language>SFX</Language>
+									<AudioFile>The-Backstage_Sound_InGame_Grognement_7.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="179962222"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="The-Backstage_Sound_InGame_Grognement_7" ID="{3CADB77A-54A8-4D7D-8A4B-6A5F10FCA2F5}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="The-Backstage_Sound_InGame_Grognement_8" ID="{9DC8C42C-002B-4EB6-91B1-1443C773E06B}" ShortID="171689998">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B91C6D5E-AF19-4CE3-9EF2-317F072DABB5}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{391913D6-23EE-475D-8396-F470AC152AF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="The-Backstage_Sound_InGame_Grognement_8" ID="{3DEBD1E0-E345-4CFF-A554-367F1E9FC0C7}">
+									<Language>SFX</Language>
+									<AudioFile>The-Backstage_Sound_InGame_Grognement_8.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="726521393"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="The-Backstage_Sound_InGame_Grognement_8" ID="{3DEBD1E0-E345-4CFF-A554-367F1E9FC0C7}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="The-Backstage_Sound_InGame_Grognement_9" ID="{3C704340-2AA9-42FE-A352-6360EC9C2095}" ShortID="788367930">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B91C6D5E-AF19-4CE3-9EF2-317F072DABB5}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{391913D6-23EE-475D-8396-F470AC152AF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="The-Backstage_Sound_InGame_Grognement_9" ID="{E355AD1D-DDBA-491F-A396-5ECD6A047977}">
+									<Language>SFX</Language>
+									<AudioFile>The-Backstage_Sound_InGame_Grognement_9.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="144973225"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="The-Backstage_Sound_InGame_Grognement_9" ID="{E355AD1D-DDBA-491F-A396-5ECD6A047977}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
+				<RandomSequenceContainer Name="Card_Player_Device" ID="{19CEADFD-29D6-42E1-A6A5-2D1E91EF273C}" ShortID="419777475">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B91C6D5E-AF19-4CE3-9EF2-317F072DABB5}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Menu_Bus" ID="{4E43B1E1-E344-4BCD-AE25-D471EAE89E0F}" WorkUnitID="{391913D6-23EE-475D-8396-F470AC152AF9}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="The-Backstage_Sound_InGame_CardPlayerDevice_OneOff_V1" ID="{A290CB72-01CA-4CC6-8ECB-BD56141F8BA2}" ShortID="396565625">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B91C6D5E-AF19-4CE3-9EF2-317F072DABB5}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{391913D6-23EE-475D-8396-F470AC152AF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="The-Backstage_Sound_InGame_CardPlayerDevice_OneOff_V1" ID="{E103E1D3-E2C2-4D48-B1EA-68A93E56FE38}">
+									<Language>SFX</Language>
+									<AudioFile>The-Backstage_Sound_InGame_CardPlayerDevice_OneOff_V1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="290887117"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="The-Backstage_Sound_InGame_CardPlayerDevice_OneOff_V1" ID="{E103E1D3-E2C2-4D48-B1EA-68A93E56FE38}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
+				<RandomSequenceContainer Name="Card_Valid" ID="{C3BDB4A2-EC35-48CC-A7F1-7E8187A226DC}" ShortID="1019501481">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B91C6D5E-AF19-4CE3-9EF2-317F072DABB5}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Menu_Bus" ID="{4E43B1E1-E344-4BCD-AE25-D471EAE89E0F}" WorkUnitID="{391913D6-23EE-475D-8396-F470AC152AF9}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="The-Backstage_Sound_InGame_Valid_OneOff_V1" ID="{79AA2C1C-D01C-4B14-BF56-BBC3B8F770EC}" ShortID="957822306">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B91C6D5E-AF19-4CE3-9EF2-317F072DABB5}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{391913D6-23EE-475D-8396-F470AC152AF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="The-Backstage_Sound_InGame_Valid_OneOff_V1" ID="{4F94AED5-B0A9-4D14-A0C6-4280244B2798}">
+									<Language>SFX</Language>
+									<AudioFile>The-Backstage_Sound_InGame_Valid_OneOff_V1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="273536048"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="The-Backstage_Sound_InGame_Valid_OneOff_V1" ID="{4F94AED5-B0A9-4D14-A0C6-4280244B2798}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
+				<RandomSequenceContainer Name="Card_Refused" ID="{3C4EF2DC-0A3D-4FCD-A508-4AF9CEF4998C}" ShortID="507817835">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B91C6D5E-AF19-4CE3-9EF2-317F072DABB5}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Menu_Bus" ID="{4E43B1E1-E344-4BCD-AE25-D471EAE89E0F}" WorkUnitID="{391913D6-23EE-475D-8396-F470AC152AF9}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="The-Backstage_Sound_InGame_Error_OneOff_V1" ID="{68462F45-FB5B-442A-B60D-200D8E290C70}" ShortID="120260960">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B91C6D5E-AF19-4CE3-9EF2-317F072DABB5}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{391913D6-23EE-475D-8396-F470AC152AF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="The-Backstage_Sound_InGame_Error_OneOff_V1" ID="{CA1EC2A3-2A3B-4163-BB04-CC3315AAE03E}">
+									<Language>SFX</Language>
+									<AudioFile>The-Backstage_Sound_InGame_Error_OneOff_V1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="531464788"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="The-Backstage_Sound_InGame_Error_OneOff_V1" ID="{CA1EC2A3-2A3B-4163-BB04-CC3315AAE03E}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
+			</ChildrenList>
+		</WorkUnit>
 	</AudioObjects>
 </WwiseDocument>

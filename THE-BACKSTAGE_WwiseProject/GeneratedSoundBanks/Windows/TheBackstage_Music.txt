@@ -1,0 +1,47 @@
+Event	ID	Name			Wwise Object Path	Notes
+	151359411	Bar_Ambiance			\Default Work Unit\Bar_Ambiance	
+	488222583	Play_Grognements			\Default Work Unit\Play_Grognements	
+	2984839113	Card_Player			\Default Work Unit\Card_Player	
+	3086388350	Card_Refused			\Default Work Unit\Card_Refused	
+	3887501564	Card_Valid			\Default Work Unit\Card_Valid	
+	3991942870	Music			\Default Work Unit\Music	
+
+State Group	ID	Name			Wwise Object Path	Notes
+	2209143526	Music_Level1			\Default Work Unit\Music_Level1	
+
+State	ID	Name	State Group			Notes
+	748895195	None	Music_Level1			
+	932294504	Tune1	Music_Level1			
+	932294506	Tune3	Music_Level1			
+	932294507	Tune2	Music_Level1			
+	1056444866	Soundcheck	Music_Level1			
+	2607556080	Menu	Music_Level1			
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	2217972468	People_Number			\Default Work Unit\People_Number	
+	2786753164	Crowd_Excitment			\Default Work Unit\Crowd_Excitment	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	9944241	The-Backstage_InGame_Intro_OneOff_V1	C:\Users\Admin\Documents\GitHub\THE-BACKSTAGE\THE-BACKSTAGE_WwiseProject\.cache\Windows\SFX\The-Backstage_InGame_Intro_OneOff_V1_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Music_Gameplay_Levels\SoundCheck\The-Backstage_InGame_Intro_OneOff_V1\The-Backstage_InGame_Intro_OneOff_V1		3757104
+	68604095	The-Backstage_InGame_Transition_Stem1-2_OneOff_V1	C:\Users\Admin\Documents\GitHub\THE-BACKSTAGE\THE-BACKSTAGE_WwiseProject\.cache\Windows\SFX\The-Backstage_InGame_Transition_Stem1-2_OneOff_V1_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Music_Gameplay_Levels\Transition_1-2\The-Backstage_InGame_Transition_Stem1-2_OneOff_V1		4893520
+	113023414	The-Backstage_Sound_InGame_Ambience_StartBad_Loop_V1	C:\Users\Admin\Documents\GitHub\THE-BACKSTAGE\THE-BACKSTAGE_WwiseProject\.cache\Windows\SFX\The-Backstage_Sound_InGame_Ambience_StartBad_Loop_V1_FBC78EF0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Crowd_Ambience\The-Backstage_Sound_InGame_Ambience_StartBad_Loop_V1		34059068
+	144973225	The-Backstage_Sound_InGame_Grognement_9	C:\Users\Admin\Documents\GitHub\THE-BACKSTAGE\THE-BACKSTAGE_WwiseProject\.cache\Windows\SFX\The-Backstage_Sound_InGame_Grognement_9_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Grognements_Videur\The-Backstage_Sound_InGame_Grognement_9		294268
+	179962222	The-Backstage_Sound_InGame_Grognement_7	C:\Users\Admin\Documents\GitHub\THE-BACKSTAGE\THE-BACKSTAGE_WwiseProject\.cache\Windows\SFX\The-Backstage_Sound_InGame_Grognement_7_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Grognements_Videur\The-Backstage_Sound_InGame_Grognement_7		289812
+	273536048	The-Backstage_Sound_InGame_Valid_OneOff_V1	C:\Users\Admin\Documents\GitHub\THE-BACKSTAGE\THE-BACKSTAGE_WwiseProject\.cache\Windows\SFX\The-Backstage_Sound_InGame_Valid_OneOff_V1_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Card_Valid\The-Backstage_Sound_InGame_Valid_OneOff_V1		219228
+	286699997	The-Backstage_Sound_InGame_Grognement_2	C:\Users\Admin\Documents\GitHub\THE-BACKSTAGE\THE-BACKSTAGE_WwiseProject\.cache\Windows\SFX\The-Backstage_Sound_InGame_Grognement_2_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Grognements_Videur\The-Backstage_Sound_InGame_Grognement_2		252492
+	290887117	The-Backstage_Sound_InGame_CardPlayerDevice_OneOff_V1	C:\Users\Admin\Documents\GitHub\THE-BACKSTAGE\THE-BACKSTAGE_WwiseProject\.cache\Windows\SFX\The-Backstage_Sound_InGame_CardPlayerDevice_OneOff_V1_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Card_Player_Device\The-Backstage_Sound_InGame_CardPlayerDevice_OneOff_V1		250528
+	470412252	The-Backstage_Sound_InGame_Grognement_6	C:\Users\Admin\Documents\GitHub\THE-BACKSTAGE\THE-BACKSTAGE_WwiseProject\.cache\Windows\SFX\The-Backstage_Sound_InGame_Grognement_6_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Grognements_Videur\The-Backstage_Sound_InGame_Grognement_6		182552
+	472053685	The-Backstage_InGame_Transition_Stem2-3_OneOff_V1	C:\Users\Admin\Documents\GitHub\THE-BACKSTAGE\THE-BACKSTAGE_WwiseProject\.cache\Windows\SFX\The-Backstage_InGame_Transition_Stem2-3_OneOff_V1_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Music_Gameplay_Levels\Transition_2-3\The-Backstage_InGame_Transition_Stem2-3_OneOff_V1		9489712
+	488556781	The-Backstage_InGame_Stem1_Loop_V1	C:\Users\Admin\Documents\GitHub\THE-BACKSTAGE\THE-BACKSTAGE_WwiseProject\.cache\Windows\SFX\The-Backstage_InGame_Stem1_Loop_V1_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Music_Gameplay_Levels\Tune1\Tune1\The-Backstage_InGame_Stem1_Loop_V1		17554380
+	500785905	The-Backstage_Sound_InGame_Grognement_5	C:\Users\Admin\Documents\GitHub\THE-BACKSTAGE\THE-BACKSTAGE_WwiseProject\.cache\Windows\SFX\The-Backstage_Sound_InGame_Grognement_5_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Grognements_Videur\The-Backstage_Sound_InGame_Grognement_5		231048
+	531464788	The-Backstage_Sound_InGame_Error_OneOff_V1	C:\Users\Admin\Documents\GitHub\THE-BACKSTAGE\THE-BACKSTAGE_WwiseProject\.cache\Windows\SFX\The-Backstage_Sound_InGame_Error_OneOff_V1_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Card_Refused\The-Backstage_Sound_InGame_Error_OneOff_V1		156620
+	546559381	The-Backstage_Sound_InGame_Grognement_4	C:\Users\Admin\Documents\GitHub\THE-BACKSTAGE\THE-BACKSTAGE_WwiseProject\.cache\Windows\SFX\The-Backstage_Sound_InGame_Grognement_4_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Grognements_Videur\The-Backstage_Sound_InGame_Grognement_4		202300
+	658945752	The-Backstage_InGame_Stem3_Loop_V1	C:\Users\Admin\Documents\GitHub\THE-BACKSTAGE\THE-BACKSTAGE_WwiseProject\.cache\Windows\SFX\The-Backstage_InGame_Stem3_Loop_V1_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Music_Gameplay_Levels\Tune3\Tune3\The-Backstage_InGame_Stem3_Loop_V1		24041832
+	674930751	The-Backstage_Sound_InGame_Ambience_Hardcore_Reverb_Loop_V1	C:\Users\Admin\Documents\GitHub\THE-BACKSTAGE\THE-BACKSTAGE_WwiseProject\.cache\Windows\SFX\The-Backstage_Sound_InGame_Ambience_Hardcore_Reverb_Loop_V1_FBC78EF0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Crowd_Ambience\The-Backstage_Sound_InGame_Ambience_Hardcore_Reverb_Loop_V1		5509664
+	726521393	The-Backstage_Sound_InGame_Grognement_8	C:\Users\Admin\Documents\GitHub\THE-BACKSTAGE\THE-BACKSTAGE_WwiseProject\.cache\Windows\SFX\The-Backstage_Sound_InGame_Grognement_8_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Grognements_Videur\The-Backstage_Sound_InGame_Grognement_8		255984
+	807511907	The-Backstage_Menu_OneOff_Music_V2	C:\Users\Admin\Documents\GitHub\THE-BACKSTAGE\THE-BACKSTAGE_WwiseProject\.cache\Windows\SFX\The-Backstage_Menu_OneOff_Music_V2_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Music_Gameplay_Levels\Music_Menu\The-Backstage_Menu_OneOff_Music_V2\The-Backstage_Menu_OneOff_Music_V2		17867852
+	814563373	The-Backstage_Sound_InGame_Grognement_3	C:\Users\Admin\Documents\GitHub\THE-BACKSTAGE\THE-BACKSTAGE_WwiseProject\.cache\Windows\SFX\The-Backstage_Sound_InGame_Grognement_3_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Grognements_Videur\The-Backstage_Sound_InGame_Grognement_3		189220
+	975137458	The-Backstage_Sound_InGame_Ambience_Normal_Loop_V1	C:\Users\Admin\Documents\GitHub\THE-BACKSTAGE\THE-BACKSTAGE_WwiseProject\.cache\Windows\SFX\The-Backstage_Sound_InGame_Ambience_Normal_Loop_V1_FBC78EF0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Crowd_Ambience\The-Backstage_Sound_InGame_Ambience_Normal_Loop_V1		17530536
+	996796621	The-Backstage_InGame_Stem2_Loop_V1	C:\Users\Admin\Documents\GitHub\THE-BACKSTAGE\THE-BACKSTAGE_WwiseProject\.cache\Windows\SFX\The-Backstage_InGame_Stem2_Loop_V1_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Music_Gameplay_Levels\Tune2\Tune2\The-Backstage_InGame_Stem2_Loop_V1		38180668
+	1028338563	The-Backstage_Sound_InGame_Grognement_1	C:\Users\Admin\Documents\GitHub\THE-BACKSTAGE\THE-BACKSTAGE_WwiseProject\.cache\Windows\SFX\The-Backstage_Sound_InGame_Grognement_1_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Grognements_Videur\The-Backstage_Sound_InGame_Grognement_1		176640
+

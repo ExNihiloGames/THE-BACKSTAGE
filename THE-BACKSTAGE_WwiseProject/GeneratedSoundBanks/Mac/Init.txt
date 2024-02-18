@@ -1,0 +1,24 @@
+Switch Group	ID	Name			Wwise Object Path	Notes
+	2217972468	People_Number			\Default Work Unit\People_Number	
+
+Switch	ID	Name	Switch Group			Notes
+	2678230380	Level3	People_Number			
+	2678230381	Level2	People_Number			
+	2678230382	Level1	People_Number			
+
+State Group	ID	Name			Wwise Object Path	Notes
+	2209143526	Music_Level1			\Default Work Unit\Music_Level1	
+
+State	ID	Name	State Group			Notes
+	748895195	None	Music_Level1			
+	932294504	Tune1	Music_Level1			
+	932294506	Tune3	Music_Level1			
+	932294507	Tune2	Music_Level1			
+
+Audio Bus	ID	Name			Wwise Object Path	Notes
+	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
+
+Audio Devices	ID	Name	Type				Notes
+	2317455096	No_Output	No Output			
+	3859886410	System	System			
+

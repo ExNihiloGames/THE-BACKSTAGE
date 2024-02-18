@@ -1,0 +1,24 @@
+Event	ID	Name			Wwise Object Path	Notes
+	3991942870	Music			\Default Work Unit\Music	
+
+State Group	ID	Name			Wwise Object Path	Notes
+	2209143526	Music_Level1			\Default Work Unit\Music_Level1	
+
+State	ID	Name	State Group			Notes
+	748895195	None	Music_Level1			
+	932294504	Tune1	Music_Level1			
+	932294506	Tune3	Music_Level1			
+	932294507	Tune2	Music_Level1			
+	2607556080	Menu	Music_Level1			
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	2217972468	People_Number			\Default Work Unit\People_Number	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	68604095	The-Backstage_InGame_Transition_Stem1-2_OneOff_V1	C:\Users\Admin\Documents\GitHub\THE-BACKSTAGE\THE-BACKSTAGE_WwiseProject\.cache\Mac\SFX\The-Backstage_InGame_Transition_Stem1-2_OneOff_V1_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Music_Gameplay_Levels\Transition_1-2\The-Backstage_InGame_Transition_Stem1-2_OneOff_V1		4893520
+	472053685	The-Backstage_InGame_Transition_Stem2-3_OneOff_V1	C:\Users\Admin\Documents\GitHub\THE-BACKSTAGE\THE-BACKSTAGE_WwiseProject\.cache\Mac\SFX\The-Backstage_InGame_Transition_Stem2-3_OneOff_V1_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Music_Gameplay_Levels\Transition_2-3\The-Backstage_InGame_Transition_Stem2-3_OneOff_V1		9489712
+	488556781	The-Backstage_InGame_Stem1_Loop_V1	C:\Users\Admin\Documents\GitHub\THE-BACKSTAGE\THE-BACKSTAGE_WwiseProject\.cache\Mac\SFX\The-Backstage_InGame_Stem1_Loop_V1_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Music_Gameplay_Levels\Tune1\Tune1\The-Backstage_InGame_Stem1_Loop_V1		17554380
+	658945752	The-Backstage_InGame_Stem3_Loop_V1	C:\Users\Admin\Documents\GitHub\THE-BACKSTAGE\THE-BACKSTAGE_WwiseProject\.cache\Mac\SFX\The-Backstage_InGame_Stem3_Loop_V1_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Music_Gameplay_Levels\Tune3\Tune3\The-Backstage_InGame_Stem3_Loop_V1		24041832
+	807511907	The-Backstage_Menu_OneOff_Music_V2	C:\Users\Admin\Documents\GitHub\THE-BACKSTAGE\THE-BACKSTAGE_WwiseProject\.cache\Mac\SFX\The-Backstage_Menu_OneOff_Music_V2_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Music_Gameplay_Levels\Music_Menu\The-Backstage_Menu_OneOff_Music_V2\The-Backstage_Menu_OneOff_Music_V2		17867852
+	996796621	The-Backstage_InGame_Stem2_Loop_V1	C:\Users\Admin\Documents\GitHub\THE-BACKSTAGE\THE-BACKSTAGE_WwiseProject\.cache\Mac\SFX\The-Backstage_InGame_Stem2_Loop_V1_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Music_Gameplay_Levels\Tune2\Tune2\The-Backstage_InGame_Stem2_Loop_V1		38180668
+

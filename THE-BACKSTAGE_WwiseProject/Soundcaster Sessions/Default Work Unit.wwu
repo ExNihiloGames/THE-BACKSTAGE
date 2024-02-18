@@ -1,6 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{614883D1-610D-4FF6-9D5F-B4F94C80CC69}" SchemaVersion="119">
 	<SoundcasterSessions>
-		<WorkUnit Name="Default Work Unit" ID="{614883D1-610D-4FF6-9D5F-B4F94C80CC69}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{614883D1-610D-4FF6-9D5F-B4F94C80CC69}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundcasterSession Name="TheBackstage" ID="{3D6DD3F4-BA73-46C3-9708-EF0D8C7161C7}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="Music_Gameplay_Levels" ID="{07AC3C35-D4A2-4AC4-937E-6714627B90BE}" WorkUnitID="{1E256A2A-B733-4FC2-84CF-89F372D8691E}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Crowd_Ambience" ID="{A37BD055-AD0A-4B16-B60D-8B96E6133453}" WorkUnitID="{15915837-C5A1-42C8-B5CC-15EFD83115CA}"/>
+							<Position X="0" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Card_Player_Device" ID="{19CEADFD-29D6-42E1-A6A5-2D1E91EF273C}" WorkUnitID="{15915837-C5A1-42C8-B5CC-15EFD83115CA}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Card_Refused" ID="{3C4EF2DC-0A3D-4FCD-A508-4AF9CEF4998C}" WorkUnitID="{15915837-C5A1-42C8-B5CC-15EFD83115CA}"/>
+							<Position X="2" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Card_Valid" ID="{C3BDB4A2-EC35-48CC-A7F1-7E8187A226DC}" WorkUnitID="{15915837-C5A1-42C8-B5CC-15EFD83115CA}"/>
+							<Position X="3" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Grognements_Videur" ID="{169C547A-27E9-4AC4-8189-9665E1D37364}" WorkUnitID="{15915837-C5A1-42C8-B5CC-15EFD83115CA}"/>
+							<Position X="4" Y="0"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true">
+						<RTPCValue>
+							<GameParameterRef Name="People_Number" ID="{E5BF5B55-34FD-4108-A6FC-5B06A448D50D}"/>
+							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="Crowd_Excitment" ID="{04713C7C-B0F3-4D8B-A0E5-791BFE2717CD}"/>
+							<Value>0</Value>
+						</RTPCValue>
+					</RTPCValueList>
+					<CurrentStateList ShowAll="true">
+						<CurrentStateRef Name="Tune1" ID="{D6DE20D0-B9F5-4479-BBAB-C3533584443E}"/>
+					</CurrentStateList>
+					<CurrentSwitchList ShowAll="true">
+						<CurrentSwitchRef Name="Level1" ID="{FACD08D1-0860-4501-818C-60273AD46E81}"/>
+					</CurrentSwitchList>
+				</SoundcasterSession>
+			</ChildrenList>
+		</WorkUnit>
 	</SoundcasterSessions>
 </WwiseDocument>

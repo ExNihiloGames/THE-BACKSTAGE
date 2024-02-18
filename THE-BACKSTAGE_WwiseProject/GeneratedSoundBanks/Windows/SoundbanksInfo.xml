@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="16" SoundBankVersion="150">
+	<RootPaths>
+		<ProjectRoot>../..</ProjectRoot>
+		<SourceFilesRoot>../../.cache/Windows</SourceFilesRoot>
+		<SoundBanksRoot>.</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>.</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<SoundBanks>
+		<SoundBank Id="743795859" Type="User" Language="SFX" Hash="{2442EAB6-DFC8-B969-8A3B-07A864117D15}">
+			<ShortName>TheBackstage_Music</ShortName>
+			<Path>TheBackstage_Music.bnk</Path>
+			<Media>
+				<File Id="9944241" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>The-Backstage_InGame_Intro_OneOff_V1.wav</ShortName>
+					<CachePath>SFX/The-Backstage_InGame_Intro_OneOff_V1_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="68604095" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>The-Backstage_InGame_Transition_Stem1-2_OneOff_V1.wav</ShortName>
+					<CachePath>SFX/The-Backstage_InGame_Transition_Stem1-2_OneOff_V1_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="113023414" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>The-Backstage_Sound_InGame_Ambience_StartBad_Loop_V1.wav</ShortName>
+					<CachePath>SFX/The-Backstage_Sound_InGame_Ambience_StartBad_Loop_V1_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="144973225" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>The-Backstage_Sound_InGame_Grognement_9.wav</ShortName>
+					<CachePath>SFX/The-Backstage_Sound_InGame_Grognement_9_818F3B66.wem</CachePath>
+				</File>
+				<File Id="179962222" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>The-Backstage_Sound_InGame_Grognement_7.wav</ShortName>
+					<CachePath>SFX/The-Backstage_Sound_InGame_Grognement_7_818F3B66.wem</CachePath>
+				</File>
+				<File Id="273536048" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>The-Backstage_Sound_InGame_Valid_OneOff_V1.wav</ShortName>
+					<CachePath>SFX/The-Backstage_Sound_InGame_Valid_OneOff_V1_818F3B66.wem</CachePath>
+				</File>
+				<File Id="286699997" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>The-Backstage_Sound_InGame_Grognement_2.wav</ShortName>
+					<CachePath>SFX/The-Backstage_Sound_InGame_Grognement_2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="290887117" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>The-Backstage_Sound_InGame_CardPlayerDevice_OneOff_V1.wav</ShortName>
+					<CachePath>SFX/The-Backstage_Sound_InGame_CardPlayerDevice_OneOff_V1_818F3B66.wem</CachePath>
+				</File>
+				<File Id="470412252" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>The-Backstage_Sound_InGame_Grognement_6.wav</ShortName>
+					<CachePath>SFX/The-Backstage_Sound_InGame_Grognement_6_818F3B66.wem</CachePath>
+				</File>
+				<File Id="472053685" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>The-Backstage_InGame_Transition_Stem2-3_OneOff_V1.wav</ShortName>
+					<CachePath>SFX/The-Backstage_InGame_Transition_Stem2-3_OneOff_V1_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="488556781" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>The-Backstage_InGame_Stem1_Loop_V1.wav</ShortName>
+					<CachePath>SFX/The-Backstage_InGame_Stem1_Loop_V1_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="500785905" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>The-Backstage_Sound_InGame_Grognement_5.wav</ShortName>
+					<CachePath>SFX/The-Backstage_Sound_InGame_Grognement_5_818F3B66.wem</CachePath>
+				</File>
+				<File Id="531464788" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>The-Backstage_Sound_InGame_Error_OneOff_V1.wav</ShortName>
+					<CachePath>SFX/The-Backstage_Sound_InGame_Error_OneOff_V1_818F3B66.wem</CachePath>
+				</File>
+				<File Id="546559381" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>The-Backstage_Sound_InGame_Grognement_4.wav</ShortName>
+					<CachePath>SFX/The-Backstage_Sound_InGame_Grognement_4_818F3B66.wem</CachePath>
+				</File>
+				<File Id="658945752" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>The-Backstage_InGame_Stem3_Loop_V1.wav</ShortName>
+					<CachePath>SFX/The-Backstage_InGame_Stem3_Loop_V1_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="674930751" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>The-Backstage_Sound_InGame_Ambience_Hardcore_Reverb_Loop_V1.wav</ShortName>
+					<CachePath>SFX/The-Backstage_Sound_InGame_Ambience_Hardcore_Reverb_Loop_V1_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="726521393" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>The-Backstage_Sound_InGame_Grognement_8.wav</ShortName>
+					<CachePath>SFX/The-Backstage_Sound_InGame_Grognement_8_818F3B66.wem</CachePath>
+				</File>
+				<File Id="807511907" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>The-Backstage_Menu_OneOff_Music_V2.wav</ShortName>
+					<CachePath>SFX/The-Backstage_Menu_OneOff_Music_V2_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="814563373" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>The-Backstage_Sound_InGame_Grognement_3.wav</ShortName>
+					<CachePath>SFX/The-Backstage_Sound_InGame_Grognement_3_818F3B66.wem</CachePath>
+				</File>
+				<File Id="975137458" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>The-Backstage_Sound_InGame_Ambience_Normal_Loop_V1.wav</ShortName>
+					<CachePath>SFX/The-Backstage_Sound_InGame_Ambience_Normal_Loop_V1_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="996796621" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>The-Backstage_InGame_Stem2_Loop_V1.wav</ShortName>
+					<CachePath>SFX/The-Backstage_InGame_Stem2_Loop_V1_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="1028338563" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>The-Backstage_Sound_InGame_Grognement_1.wav</ShortName>
+					<CachePath>SFX/The-Backstage_Sound_InGame_Grognement_1_818F3B66.wem</CachePath>
+				</File>
+			</Media>
+			<Events>
+				<Event Id="151359411" Name="Bar_Ambiance" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="113023414"/>
+						<MediaRef Id="674930751"/>
+						<MediaRef Id="975137458"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2984839113" Name="Card_Player" DurationType="OneShot" DurationMin="1.3043333" DurationMax="1.3043333">
+					<MediaRefs>
+						<MediaRef Id="290887117"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3086388350" Name="Card_Refused" DurationType="OneShot" DurationMin="0.8152292" DurationMax="0.8152292">
+					<MediaRefs>
+						<MediaRef Id="531464788"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3887501564" Name="Card_Valid" DurationType="OneShot" DurationMin="1.1413125" DurationMax="1.1413125">
+					<MediaRefs>
+						<MediaRef Id="273536048"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3991942870" Name="Music" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="68604095"/>
+						<MediaRef Id="472053685"/>
+					</MediaRefs>
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="2209143526" Id="932294504"/>
+							<MediaRefs>
+								<MediaRef Id="488556781"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="2209143526" Id="932294507"/>
+							<MediaRefs>
+								<MediaRef Id="996796621"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="2209143526" Id="932294506"/>
+							<MediaRefs>
+								<MediaRef Id="658945752"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="2209143526" Id="2607556080"/>
+							<MediaRefs>
+								<MediaRef Id="807511907"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="2209143526" Id="1056444866"/>
+							<MediaRefs>
+								<MediaRef Id="9944241"/>
+							</MediaRefs>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+				<Event Id="488222583" Name="Play_Grognements" DurationType="OneShot" DurationMin="1.0321038" DurationMax="1.7197756">
+					<MediaRefs>
+						<MediaRef Id="144973225"/>
+						<MediaRef Id="179962222"/>
+						<MediaRef Id="286699997"/>
+						<MediaRef Id="470412252"/>
+						<MediaRef Id="500785905"/>
+						<MediaRef Id="546559381"/>
+						<MediaRef Id="726521393"/>
+						<MediaRef Id="814563373"/>
+						<MediaRef Id="1028338563"/>
+					</MediaRefs>
+				</Event>
+			</Events>
+			<GameParameters>
+				<GameParameter Id="2217972468" Name="People_Number"/>
+				<GameParameter Id="2786753164" Name="Crowd_Excitment"/>
+			</GameParameters>
+			<StateGroups>
+				<StateGroup Id="2209143526" Name="Music_Level1">
+					<States>
+						<State Id="748895195" Name="None"/>
+						<State Id="932294504" Name="Tune1"/>
+						<State Id="932294506" Name="Tune3"/>
+						<State Id="932294507" Name="Tune2"/>
+						<State Id="1056444866" Name="Soundcheck"/>
+						<State Id="2607556080" Name="Menu"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
+			<SwitchGroups>
+				<SwitchGroup Id="2217972468" Name="People_Number">
+					<GameParameterRef Id="2217972468"/>
+					<Switches>
+						<Switch Id="2678230380" Name="Level3"/>
+						<Switch Id="2678230381" Name="Level2"/>
+						<Switch Id="2678230382" Name="Level1"/>
+					</Switches>
+				</SwitchGroup>
+			</SwitchGroups>
+		</SoundBank>
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{EFF2DB5E-65D6-17FF-84EE-2C2027441C76}">
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+			<Plugins>
+				<Custom>
+					<Plugin Id="913572598" Name="Matrix Reverb (Custom)" LibName="Wwise Matrix Reverb" LibId="7536643"/>
+				</Custom>
+				<ShareSets>
+					<Plugin Id="3491912475" Name="Club_Music_Distant_01" LibName="Wwise Parametric EQ" LibId="6881283"/>
+				</ShareSets>
+				<AudioDevices>
+					<Plugin Id="2317455096" Name="No_Output" LibName="No Output" LibId="11862023"/>
+					<Plugin Id="3859886410" Name="System" LibName="System" LibId="11403271"/>
+				</AudioDevices>
+			</Plugins>
+			<Busses>
+				<Bus Id="3022218555" Name="Menu_Bus"/>
+				<Bus Id="3803692087" Name="Master Audio Bus">
+					<PluginRefs>
+						<Custom>
+							<PluginRef Id="913572598"/>
+						</Custom>
+						<ShareSets>
+							<PluginRef Id="3491912475"/>
+						</ShareSets>
+					</PluginRefs>
+				</Bus>
+			</Busses>
+			<GameParameters>
+				<GameParameter Id="2217972468" Name="People_Number"/>
+				<GameParameter Id="2786753164" Name="Crowd_Excitment"/>
+			</GameParameters>
+			<StateGroups>
+				<StateGroup Id="2209143526" Name="Music_Level1">
+					<States>
+						<State Id="748895195" Name="None"/>
+						<State Id="932294504" Name="Tune1"/>
+						<State Id="932294506" Name="Tune3"/>
+						<State Id="932294507" Name="Tune2"/>
+						<State Id="1056444866" Name="Soundcheck"/>
+						<State Id="2607556080" Name="Menu"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
+			<SwitchGroups>
+				<SwitchGroup Id="2217972468" Name="People_Number">
+					<GameParameterRef Id="2217972468"/>
+					<Switches>
+						<Switch Id="2678230380" Name="Level3"/>
+						<Switch Id="2678230381" Name="Level2"/>
+						<Switch Id="2678230382" Name="Level1"/>
+					</Switches>
+				</SwitchGroup>
+			</SwitchGroups>
+		</SoundBank>
+	</SoundBanks>
+	<FileHash>{82D58AE3-C0B8-D75F-2CC8-1DB83C48F604}</FileHash>
+</SoundBanksInfo>

@@ -9,6 +9,48 @@
 							<ObjectRef Name="System" ID="{680D7DFB-14F4-455E-A40B-2DA54FBB710C}" WorkUnitID="{F20AD288-43FA-436B-A6A6-160AB7948B67}"/>
 						</Reference>
 					</ReferenceList>
+					<ObjectLists>
+						<ObjectList Name="Effects">
+							<Reference>
+								<Local>
+									<EffectSlot Name="" ID="{7AECA9EC-2660-4B4B-88C9-CB6CD540E0DB}" ShortID="817191344">
+										<ReferenceList>
+											<Reference Name="Effect" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+												<ObjectRef Name="Club_Music_Distant_01" ID="{972799F5-C6E5-4E4F-83E3-95AA307CDFD1}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+											</Reference>
+										</ReferenceList>
+									</EffectSlot>
+								</Local>
+							</Reference>
+							<Reference>
+								<Local>
+									<EffectSlot Name="" ID="{91EC350D-A9C5-4D14-9C8A-1021C618C476}" ShortID="568974808">
+										<ReferenceList>
+											<Reference Name="Effect">
+												<Custom>
+													<Effect Name="Matrix Reverb (Custom)" ID="{A56BD577-B3CF-4907-B3C6-1A5560CE746B}" ShortID="913572598" PluginName="Wwise Matrix Reverb" CompanyID="0" PluginID="115" PluginType="3">
+														<PropertyList>
+															<Property Name="DryLevel" Type="Real32" Value="-2.3"/>
+															<Property Name="PreDelay" Type="Real32" Value="0.05"/>
+															<Property Name="ReverbTime" Type="Real32" Value="2.2"/>
+															<Property Name="WetLevel" Type="Real32" Value="-33"/>
+														</PropertyList>
+													</Effect>
+												</Custom>
+											</Reference>
+										</ReferenceList>
+									</EffectSlot>
+								</Local>
+							</Reference>
+						</ObjectList>
+					</ObjectLists>
+				</Bus>
+				<Bus Name="Menu_Bus" ID="{4E43B1E1-E344-4BCD-AE25-D471EAE89E0F}">
+					<ReferenceList>
+						<Reference Name="AudioDevice" PluginName="System" CompanyID="0" PluginID="174" PluginType="7">
+							<ObjectRef Name="System" ID="{680D7DFB-14F4-455E-A40B-2DA54FBB710C}" WorkUnitID="{F20AD288-43FA-436B-A6A6-160AB7948B67}"/>
+						</Reference>
+					</ReferenceList>
 				</Bus>
 			</ChildrenList>
 		</WorkUnit>

@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{9722216A-10E2-44BC-8DEA-A56AEA8F9C9E}" SchemaVersion="119">
 	<SoundBanks>
-		<WorkUnit Name="Default Work Unit" ID="{9722216A-10E2-44BC-8DEA-A56AEA8F9C9E}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{9722216A-10E2-44BC-8DEA-A56AEA8F9C9E}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="TheBackstage_Music" ID="{4A3BC923-C34C-4C2C-9D9C-F067F6AEB729}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Bar_Ambiance" ID="{0F3B1B51-7FF1-423A-B839-B0212C5530E5}" WorkUnitID="{AEDAD893-D537-48B4-B0C3-C1161BD50C4F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Card_Refused" ID="{1D991F1C-9C92-4345-9D91-42835C7DC039}" WorkUnitID="{AEDAD893-D537-48B4-B0C3-C1161BD50C4F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Music" ID="{B06CC909-04B6-43D0-8BC1-89721820BBED}" WorkUnitID="{AEDAD893-D537-48B4-B0C3-C1161BD50C4F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Grognements" ID="{FD2DB04D-EB9F-459E-8217-D62F0484CA9A}" WorkUnitID="{AEDAD893-D537-48B4-B0C3-C1161BD50C4F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Card_Player" ID="{4EDE7E57-77BA-47D7-B5CA-A36EF407F9DE}" WorkUnitID="{AEDAD893-D537-48B4-B0C3-C1161BD50C4F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Card_Valid" ID="{DCAFAD39-DFE9-4EF2-B926-60578ABB9E3B}" WorkUnitID="{AEDAD893-D537-48B4-B0C3-C1161BD50C4F}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList>
+						<GameSyncRef Name="Level1" ID="{FACD08D1-0860-4501-818C-60273AD46E81}" WorkUnitID="{379511BC-292E-4463-9118-211193752AF0}" Origin="Manual"/>
+						<GameSyncRef Name="Level2" ID="{1C7ACE2A-4990-4677-ACC3-4CF88BB81334}" WorkUnitID="{379511BC-292E-4463-9118-211193752AF0}" Origin="Manual"/>
+						<GameSyncRef Name="Level3" ID="{76EBF76E-E5A7-4D02-B85B-AE9B0C989B0C}" WorkUnitID="{379511BC-292E-4463-9118-211193752AF0}" Origin="Manual"/>
+					</GameSyncExclusionList>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
 	</SoundBanks>
 </WwiseDocument>

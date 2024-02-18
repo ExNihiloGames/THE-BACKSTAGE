@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="16" SoundBankVersion="150">
+	<RootPaths>
+		<ProjectRoot>../..</ProjectRoot>
+		<SourceFilesRoot>../../.cache/Mac</SourceFilesRoot>
+		<SoundBanksRoot>.</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>.</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<SoundBanks>
+		<SoundBank Id="743795859" Type="User" Language="SFX" Hash="{A0F3E360-0409-A00D-7B79-3AD707063599}">
+			<ShortName>TheBackstage_Music</ShortName>
+			<Path>TheBackstage_Music.bnk</Path>
+			<Media>
+				<File Id="68604095" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>The-Backstage_InGame_Transition_Stem1-2_OneOff_V1.wav</ShortName>
+					<CachePath>SFX/The-Backstage_InGame_Transition_Stem1-2_OneOff_V1_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="472053685" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>The-Backstage_InGame_Transition_Stem2-3_OneOff_V1.wav</ShortName>
+					<CachePath>SFX/The-Backstage_InGame_Transition_Stem2-3_OneOff_V1_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="488556781" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>The-Backstage_InGame_Stem1_Loop_V1.wav</ShortName>
+					<CachePath>SFX/The-Backstage_InGame_Stem1_Loop_V1_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="658945752" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>The-Backstage_InGame_Stem3_Loop_V1.wav</ShortName>
+					<CachePath>SFX/The-Backstage_InGame_Stem3_Loop_V1_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="807511907" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>The-Backstage_Menu_OneOff_Music_V2.wav</ShortName>
+					<CachePath>SFX/The-Backstage_Menu_OneOff_Music_V2_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="996796621" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>The-Backstage_InGame_Stem2_Loop_V1.wav</ShortName>
+					<CachePath>SFX/The-Backstage_InGame_Stem2_Loop_V1_FBC78EF0.wem</CachePath>
+				</File>
+			</Media>
+			<Events>
+				<Event Id="3991942870" Name="Music" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="68604095"/>
+						<MediaRef Id="472053685"/>
+					</MediaRefs>
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="2209143526" Id="932294504"/>
+							<MediaRefs>
+								<MediaRef Id="488556781"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="2209143526" Id="932294507"/>
+							<MediaRefs>
+								<MediaRef Id="996796621"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="2209143526" Id="932294506"/>
+							<MediaRefs>
+								<MediaRef Id="658945752"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="2209143526" Id="2607556080"/>
+							<MediaRefs>
+								<MediaRef Id="807511907"/>
+							</MediaRefs>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+			</Events>
+			<GameParameters>
+				<GameParameter Id="2217972468" Name="People_Number"/>
+			</GameParameters>
+			<StateGroups>
+				<StateGroup Id="2209143526" Name="Music_Level1">
+					<States>
+						<State Id="748895195" Name="None"/>
+						<State Id="932294504" Name="Tune1"/>
+						<State Id="932294506" Name="Tune3"/>
+						<State Id="932294507" Name="Tune2"/>
+						<State Id="2607556080" Name="Menu"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
+			<SwitchGroups>
+				<SwitchGroup Id="2217972468" Name="People_Number">
+					<GameParameterRef Id="2217972468"/>
+					<Switches>
+						<Switch Id="2678230380" Name="Level3"/>
+						<Switch Id="2678230381" Name="Level2"/>
+						<Switch Id="2678230382" Name="Level1"/>
+					</Switches>
+				</SwitchGroup>
+			</SwitchGroups>
+		</SoundBank>
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{A8FDCD7A-D90F-8B4E-47E0-DDB48A838417}">
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+			<Plugins>
+				<AudioDevices>
+					<Plugin Id="2317455096" Name="No_Output" LibName="No Output" LibId="11862023"/>
+					<Plugin Id="3859886410" Name="System" LibName="System" LibId="11403271"/>
+				</AudioDevices>
+			</Plugins>
+			<Busses>
+				<Bus Id="3803692087" Name="Master Audio Bus"/>
+			</Busses>
+			<GameParameters>
+				<GameParameter Id="2217972468" Name="People_Number"/>
+			</GameParameters>
+			<StateGroups>
+				<StateGroup Id="2209143526" Name="Music_Level1">
+					<States>
+						<State Id="748895195" Name="None"/>
+						<State Id="932294504" Name="Tune1"/>
+						<State Id="932294506" Name="Tune3"/>
+						<State Id="932294507" Name="Tune2"/>
+						<State Id="2607556080" Name="Menu"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
+			<SwitchGroups>
+				<SwitchGroup Id="2217972468" Name="People_Number">
+					<GameParameterRef Id="2217972468"/>
+					<Switches>
+						<Switch Id="2678230380" Name="Level3"/>
+						<Switch Id="2678230381" Name="Level2"/>
+						<Switch Id="2678230382" Name="Level1"/>
+					</Switches>
+				</SwitchGroup>
+			</SwitchGroups>
+		</SoundBank>
+	</SoundBanks>
+	<FileHash>{38E6D43A-5B84-4A5E-EE5E-1E1036425068}</FileHash>
+</SoundBanksInfo>

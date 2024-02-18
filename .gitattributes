@@ -51,5 +51,8 @@
 *.reason            filter=lfs diff=lfs merge=lfs -text
 *.lxo               filter=lfs diff=lfs merge=lfs -text
 
+#Soundbank Wwise
+*.bnk               filter=lfs diff=lfs merge=lfs -text
+
 *.dgml                      binary
 [Ll]ighting[Dd]ata.asset    binary
