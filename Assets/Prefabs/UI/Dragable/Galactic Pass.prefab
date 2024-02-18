@@ -102,11 +102,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e5c90ccb85b62a43b1a87bcddc21ef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isValid: 0
   firstName: 
   lastName: 
   species: 
   birthdate: 
-  isValid: 0
+  picture: {fileID: 0}
 --- !u!114 &8599091189678521261
 MonoBehaviour:
   m_ObjectHideFlags: 0

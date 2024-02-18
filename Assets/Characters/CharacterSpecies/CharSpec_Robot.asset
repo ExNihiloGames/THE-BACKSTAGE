@@ -14,21 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Octoboxoid
   firstNameList:
-  - Unit 15X
-  - Unit 35J
-  - Unit 48U
-  - Unit 69S
-  - Unit34I
-  - Unit 101C
-  - Unit404F
+  - Pulpi
+  - Calmar
+  - Iatneh
+  - Polus
+  - Uknai
+  - Troups
+  - Jell
   lastNameList:
-  - MOD-HU
-  - MOD-JO
-  - MOD-UL
-  - MOD-AL
-  - MOD-ULO
-  - MOD-US
-  - MOD-OR
+  - Hoi
+  - Levia
+  - Tentacool
+  - Pulpy
+  - Vido
+  - Slurp
+  - Ulrop
   spriteList:
   - {fileID: 21300000, guid: 0b55e91e7ae5d394091ebe007f570fe0, type: 3}
   - {fileID: 21300000, guid: 6ee9fb60734066546a816d6381b5b128, type: 3}
