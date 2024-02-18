@@ -6269,6 +6269,7 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 27c907b142c114741833088265807efe, type: 3}
     - {fileID: 21300000, guid: af76d5b3fd4296f409dd27ddcf525379, type: 3}
   cardResultDisplay:
+    cardInfoHolder: {fileID: 3326904293755788998}
     firstnameTxtValue: {fileID: 3463233966375754769}
     lastnameTxtValue: {fileID: 887857883332075304}
     speciesTxtValue: {fileID: 3768626296895921105}

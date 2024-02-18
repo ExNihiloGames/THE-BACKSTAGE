@@ -17,6 +17,9 @@ public class CardsList
 [System.Serializable]
 public class CardResultDisplay
 {
+    [Header("CardInfoHolder")]
+    public GameObject cardInfoHolder;
+    [Space]
     [Header("Text Displays")]
     public TMP_Text firstnameTxtValue;
     public TMP_Text lastnameTxtValue;
@@ -87,6 +90,8 @@ public class DisplayScreen : MonoBehaviour
 
         dialogManager = DialogManager.Instance;
         dateTextValue.text = Character.today.ToShortDateString();
+
+        ClearGuestInfoScreen();
     }
 
     private void AddVIPToDisplay(Character vip)
@@ -116,6 +121,7 @@ public class DisplayScreen : MonoBehaviour
         cardResultDisplay.characterImage.sprite = card.cardContent.picture;
 
         cardResultDisplay.cardImage.enabled = true;
+        cardResultDisplay.cardInfoHolder.SetActive(true);
     }
 
     private void DisplayTestResult(TestEquipmentType testConducted, bool testResult)
@@ -134,8 +140,6 @@ public class DisplayScreen : MonoBehaviour
                 else
                 {
                     testResultDisplay.testResultImage.sprite = testResultDisplay.n_AlcoholTestSprite;
-                    dialogManager.RequestPlayerDialog(DialogStyle.RefusalDrugTest);
-                    StartCoroutine(DelayRequest(0.5f, DialogStyle.ProtestDrugTestResult));
                     break;
                 }
 
@@ -143,6 +147,8 @@ public class DisplayScreen : MonoBehaviour
                 if (testResult)
                 {
                     testResultDisplay.testResultImage.sprite = testResultDisplay.p_DrugsTestSprite;
+                    dialogManager.RequestPlayerDialog(DialogStyle.RefusalDrugTest);
+                    StartCoroutine(DelayRequest(0.5f, DialogStyle.ProtestDrugTestResult));
                     break;
                 }
                 else
@@ -172,7 +178,8 @@ public class DisplayScreen : MonoBehaviour
         testResultDisplay.TestTypeText.text = "";
         testResultDisplay.testResultImage.sprite = testResultDisplay.defaultTestResultSprite;
         testResultDisplay.testResultImage.enabled = false;
-
+        
+        cardResultDisplay.cardInfoHolder.SetActive(false);
     }
 
     IEnumerator DelayRequest(float s, DialogStyle dialogstyle)

@@ -7,7 +7,7 @@ public class Trash : MonoBehaviour, IDropHandler
     {
         if (eventData.pointerDrag != null)
         {
-            if (eventData.pointerDrag.GetComponent<IDCard>() != null)
+            if (eventData.pointerDrag.GetComponent<IDCard>() == null)
             {
                 Destroy(eventData.pointerDrag);
             }            
