@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class CharacterDisplay : MonoBehaviour, IPointerDownHandler, IDropHandler
 {
+    public SpriteRenderer spriteDisplay;
     public Sprite defaultCharacterSprite;
     public GameObject idCardTemplate;
 
@@ -37,15 +38,17 @@ public class CharacterDisplay : MonoBehaviour, IPointerDownHandler, IDropHandler
     void LoadCharacter(Character character)
     {
         currentCharacter = character;
-        characterImage.sprite = character.characterSprite;
+        spriteDisplay.sprite = character.characterSprite; //characterImage
+        spriteDisplay.enabled = true;
         characterImage.enabled = true;
         gameManager.DebugCharacterDisplayState(false);
     }
 
     void UnloadCharacter()
     {
+        spriteDisplay.enabled = false;
         characterImage.enabled = false;
-        characterImage.sprite = defaultCharacterSprite;
+        spriteDisplay.sprite = defaultCharacterSprite;
         currentCharacter = null;
         hasHandedId = false;
         hasBeenAlcoholTested = false;
@@ -55,29 +58,32 @@ public class CharacterDisplay : MonoBehaviour, IPointerDownHandler, IDropHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (!hasHandedId)
-        {
-            dialogManager.RequestPlayerDialog(DialogStyle.AskIDCard);
-        }            
-        if (currentCharacter.hasID)
+        if (currentCharacter != null)
         {
             if (!hasHandedId)
             {
-                dialogManager.RequestNPCDialog(DialogStyle.Acquiesce);
-                GenerateID();
-                hasHandedId = true;
+                dialogManager.RequestPlayerDialog(DialogStyle.AskIDCard);
+            }
+            if (currentCharacter.hasID)
+            {
+                if (!hasHandedId)
+                {
+                    dialogManager.RequestNPCDialog(DialogStyle.Acquiesce);
+                    GenerateID();
+                    hasHandedId = true;
+                }
+                else
+                {
+                    Debug.Log("Dude I Already gave it to you"); // Request DialogManager (???)
+                }
             }
             else
             {
-                Debug.Log("Dude I Already gave it to you"); // Request DialogManager (???)
+                dialogManager.RequestNPCDialog(DialogStyle.NoIDCard);
+                StartCoroutine(DelayRequest(0.5f, DialogStyle.NoIDCard));
+                //dialogManager.RequestPlayerDialog(DialogStyle.NoIDCard);
             }
-        }
-        else
-        {
-            dialogManager.RequestNPCDialog(DialogStyle.NoIDCard);
-            StartCoroutine(DelayRequest(0.5f, DialogStyle.NoIDCard));
-            //dialogManager.RequestPlayerDialog(DialogStyle.NoIDCard);
-        }
+        }        
     }
 
     public void OnDrop(PointerEventData eventData)

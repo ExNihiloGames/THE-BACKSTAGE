@@ -127,6 +127,8 @@ public class GameManager : MonoBehaviour
             { 
                 vipGuestsList.Add(character);
                 OnGuestIsVIP?.Invoke(character);
+                Debug.Log("VIP GENERATED");
+                Debug.Log(character.firstName+ " " + character.lastName);
             }
         }
     }
