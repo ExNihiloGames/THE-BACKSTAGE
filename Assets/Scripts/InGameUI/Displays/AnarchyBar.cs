@@ -3,44 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AmbianceBar : MonoBehaviour
+public class AnarchyBar : MonoBehaviour
 {
 
     public Slider slider;
     public Gradient gradient; //optionel
     public Image fill; //optionel
 
-    private void Awake()
-    {
-        SetMinAmbianceLevel();
-    }
-
-    public void SetMaxAmbianceLevel()
+    public void SetMaxAnarchyLevel()
     {
         slider.value = slider.maxValue;
     }
 
-    public void SetMinAmbianceLevel()
+    public void SetMinAnarchyLevel()
     {
         slider.value = slider.minValue;
     }
 
-    public void SetMinAmbianceValue(float value)
-    {
-        slider.minValue = value;
-    }
-
-    public void SetMaxAmbianceValue(float value)
-    {
-        slider.maxValue = value;
-    }
-
-    public void AddAmbiance(float percentage)
+    public void AddAnarchy(float percentage)
     {
         slider.value += percentage;
     }
 
-    public void SetAmbianceLevel(float percentage)
+    public void SetAnarchyLevel(float percentage)
     {
         slider.value = percentage;
 

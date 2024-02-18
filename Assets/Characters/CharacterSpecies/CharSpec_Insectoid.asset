@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 578784ef248a8d04db1323d1048d7c12, type: 3}
   m_Name: CharSpec_Insectoid
   m_EditorClassIdentifier: 
-  displayName: Insectoid
+  displayName: Mantis
   firstNameList:
   - Arachnus
   - Mantis
@@ -29,4 +29,7 @@ MonoBehaviour:
   - Infesti
   - Hornet
   - Judipos
-  spriteList: []
+  spriteList:
+  - {fileID: 21300000, guid: d3382f7809bae0043a6273de1bbf97d7, type: 3}
+  - {fileID: 21300000, guid: a65cd5ea7cd24674bade62855be825e2, type: 3}
+  - {fileID: 21300000, guid: 8d5b7de324683fa46aa29f4474248921, type: 3}

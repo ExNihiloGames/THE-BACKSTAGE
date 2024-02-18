@@ -28,4 +28,5 @@ MonoBehaviour:
   - Nodei
   - Adkav
   - Vidok
-  spriteList: []
+  spriteList:
+  - {fileID: 21300000, guid: 56a9c19df85c7a04ebb4c1080f7e9b15, type: 3}

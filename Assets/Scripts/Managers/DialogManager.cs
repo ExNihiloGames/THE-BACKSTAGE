@@ -71,7 +71,8 @@ public class DialogManager : MonoBehaviour
     void AcceptGuest()
     {
         RequestPlayerDialog(DialogStyle.Accept);
-        RequestNPCDialog(DialogStyle.Thanks);
+        StartCoroutine(DelayRequest(0.5f, DialogStyle.Thanks));
+        // RequestNPCDialog(DialogStyle.Thanks);
     }
 
     void RefuseGuest()
@@ -79,7 +80,8 @@ public class DialogManager : MonoBehaviour
         RequestPlayerDialog(DialogStyle.Refuse);
         if (UnityEngine.Random.Range(0f, 1f) <= guestProtestRejectionProba)
         {
-            RequestNPCDialog(DialogStyle.Threats);
+            StartCoroutine(DelayRequest(0.5f, DialogStyle.Threats));
+            // RequestNPCDialog(DialogStyle.Threats);
         }
     }
 
@@ -98,6 +100,12 @@ public class DialogManager : MonoBehaviour
     public void RequestClearDialogBox()
     {
         OnDialogBoxClearRequest?.Invoke();
+    }
+
+    IEnumerator DelayRequest(float s, DialogStyle dialogstyle)
+    {
+        yield return new WaitForSeconds(s);
+        RequestNPCDialog(dialogstyle);
     }
 }
 

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -9,7 +7,10 @@ public class Trash : MonoBehaviour, IDropHandler
     {
         if (eventData.pointerDrag != null)
         {
-            Destroy(eventData.pointerDrag);
+            if (eventData.pointerDrag.GetComponent<IDCard>() == null)
+            {
+                Destroy(eventData.pointerDrag);
+            }            
         }
     }
 }
