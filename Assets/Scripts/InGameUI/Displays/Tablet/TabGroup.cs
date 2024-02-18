@@ -20,6 +20,17 @@ public class TabGroup : MonoBehaviour
         tabButtons = new List<TheBackstage.TabButton>();
     }
 
+    private void Start()
+    {
+        foreach(TheBackstage.TabButton button in tabButtons)
+        {
+            if (button.startsSelected)
+            {
+                selectedTab = button;
+            }
+        }
+    }
+
     public void Subscribe(TheBackstage.TabButton tabButton)
     {
         tabButtons.Add(tabButton);   

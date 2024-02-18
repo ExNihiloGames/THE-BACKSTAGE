@@ -1,11 +1,8 @@
-using JetBrains.Annotations;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class NExtGuestClickZone : MonoBehaviour, IPointerDownHandler
+public class NextGuestClickZone : MonoBehaviour, IPointerDownHandler
 {
     public static event Action Clicked;
 

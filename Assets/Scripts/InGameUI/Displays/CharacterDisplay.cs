@@ -1,18 +1,18 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class CharacterDisplay : MonoBehaviour, IPointerDownHandler, IDropHandler
 {
+    public Sprite defaultCharacterSprite;
     public GameObject idCardTemplate;
 
     GameManager gameManager;
     DialogManager dialogManager;
-    Character currentCharater;
+    Character currentCharacter;
     RectTransform rectTransform;
+    Image characterImage;
 
     bool hasHandedId;
     bool hasBeenAlcoholTested;
@@ -22,26 +22,31 @@ public class CharacterDisplay : MonoBehaviour, IPointerDownHandler, IDropHandler
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameManager.Instance;
+        dialogManager = DialogManager.Instance;
+
         GameManager.OnGuestShowUP += LoadCharacter;
         GameManager.OnGuestAccepted += UnloadCharacter;
         GameManager.OnGuestRejected += UnloadCharacter;
-        gameManager = GameManager.Instance;
-        dialogManager= DialogManager.Instance;
+        
         rectTransform = GetComponent<RectTransform>();
+        characterImage = GetComponent<Image>();
         gameManager.DebugCharacterDisplayState(true);
     }
 
     void LoadCharacter(Character character)
     {
-        currentCharater = character;
-        GetComponent<Image>().enabled = true;
+        currentCharacter = character;
+        characterImage.sprite = character.characterSprite;
+        characterImage.enabled = true;
         gameManager.DebugCharacterDisplayState(false);
     }
 
     void UnloadCharacter()
     {
-        GetComponent<Image>().enabled = false;
-        currentCharater = null;
+        characterImage.enabled = false;
+        characterImage.sprite = defaultCharacterSprite;
+        currentCharacter = null;
         hasHandedId = false;
         hasBeenAlcoholTested = false;
         hasBeenDrugTested = false;
@@ -54,7 +59,7 @@ public class CharacterDisplay : MonoBehaviour, IPointerDownHandler, IDropHandler
         {
             dialogManager.RequestPlayerDialog(DialogStyle.AskIDCard);
         }            
-        if (currentCharater.hasID)
+        if (currentCharacter.hasID)
         {
             if (!hasHandedId)
             {
@@ -70,7 +75,8 @@ public class CharacterDisplay : MonoBehaviour, IPointerDownHandler, IDropHandler
         else
         {
             dialogManager.RequestNPCDialog(DialogStyle.NoIDCard);
-            dialogManager.RequestPlayerDialog(DialogStyle.NoIDCard);
+            StartCoroutine(DelayRequest(0.5f, DialogStyle.NoIDCard));
+            //dialogManager.RequestPlayerDialog(DialogStyle.NoIDCard);
         }
     }
 
@@ -90,13 +96,12 @@ public class CharacterDisplay : MonoBehaviour, IPointerDownHandler, IDropHandler
                             {
                                 dialogManager.RequestNPCDialog(DialogStyle.Acquiesce);
                                 StartCoroutine(ConductTest(eventData.pointerDrag, 1.5f));
-                                testEquipment.isDrunk = currentCharater.isDrunk;
+                                testEquipment.isDrunk = currentCharacter.isDrunk;
                                 hasBeenAlcoholTested = true;
                             }
                             else
                             {
                                 dialogManager.RequestNPCDialog(DialogStyle.RefusalAlcoholTest);
-
                             }
                             break;
 
@@ -105,7 +110,7 @@ public class CharacterDisplay : MonoBehaviour, IPointerDownHandler, IDropHandler
                             {
                                 dialogManager.RequestNPCDialog(DialogStyle.Acquiesce);
                                 StartCoroutine(ConductTest(eventData.pointerDrag, 1.5f));
-                                testEquipment.isHigh = currentCharater.isHigh;
+                                testEquipment.isHigh = currentCharacter.isHigh;
                                 hasBeenDrugTested = true;
                             }
                             else
@@ -138,11 +143,13 @@ public class CharacterDisplay : MonoBehaviour, IPointerDownHandler, IDropHandler
         cardRectTransform.anchoredPosition = rectTransform.anchoredPosition;
 
         IDCard idCardContent = idCard.GetComponent<IDCard>();
-        idCardContent.firstName = currentCharater.firstName;
-        idCardContent.lastName = currentCharater.lastName;
-        idCardContent.species = currentCharater.characterSpecie.displayName;
-        idCardContent.birthdate = currentCharater.dateOfBirth.ToShortDateString();
-        idCardContent.isValid = currentCharater.isIDValid;
+
+        idCardContent.isValid = currentCharacter.isIDValid;
+        idCardContent.firstName = currentCharacter.firstName;
+        idCardContent.lastName = currentCharacter.lastName;
+        idCardContent.species = currentCharacter.characterSpecie.displayName;
+        idCardContent.birthdate = currentCharacter.dateOfBirth.ToShortDateString();
+        idCardContent.picture = currentCharacter.characterSprite;
     }
 
     private void CheckHasID()
@@ -162,5 +169,11 @@ public class CharacterDisplay : MonoBehaviour, IPointerDownHandler, IDropHandler
         testEquipment.GetComponent<Image>().enabled = false;
         yield return new WaitForSeconds(testDuration);
         testEquipment.GetComponent<Image>().enabled = true;
+    }
+
+    IEnumerator DelayRequest(float s, DialogStyle dialogstyle)
+    {
+        yield return new WaitForSeconds(s);
+        dialogManager.RequestNPCDialog(dialogstyle);
     }
 }

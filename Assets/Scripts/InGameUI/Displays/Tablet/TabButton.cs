@@ -12,6 +12,7 @@ namespace TheBackstage
         public TabGroup tabGroup;
         [HideInInspector]
         public Image background;
+        public bool startsSelected;
 
         void Start()
         {

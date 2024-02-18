@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
@@ -7,14 +6,18 @@ using System;
 public class GameManager : MonoBehaviour
 {
     [Header("Guests Generation")]
-    [SerializeField] int guestsNumber;
     [SerializeField] AbstractCharacterGenerator characterGenerator;
+    [SerializeField] int guestsInQueue;
+    [SerializeField] [Range(0f, 1f)] float guestIsVIPProba;
+    [SerializeField] List<GameObject> gameObjects;
     [Space]
     [Header("Bar Settings")]
     [SerializeField] int maxGuests;
-    [SerializeField] int ambianceJaugeRange;
-    public GameObject ambianceBar;
+    [SerializeField] GameObject anarchyBar;
+    [SerializeField] int minAnarchy;
+    [SerializeField] int maxAnarchy;
 
+    public static event Action<Character> OnGuestIsVIP;
     public static event Action<Character> OnGuestShowUP;
     public static event Action OnGuestAccepted;
     public static event Action OnGuestRejected;
@@ -22,12 +25,14 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;
     public static GameManager Instance { get { return _instance; } }
 
-    List<Character> guestInQueue;
-    List<Character> guestInBar;
+    // List<Character> guestInQueue;
+    Queue<Character> guestQueue;
+    List<Character> guestsInBarList;
+    List<Character> vipGuestsList;
     Character currentGuest;
 
-    public float ambiance => m_ambiance;
-    private float m_ambiance; // valeur qui va gérer la jauge. min = -ambianceJaugeRange/2; max=ambianceJaugeRange/2
+    public float anarchy => m_anarchy;
+    private float m_anarchy;
 
     private void Awake()
     {
@@ -45,15 +50,19 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         AcceptRejectDebugPanel.accepted += OnChoice;
-        NExtGuestClickZone.Clicked += CallNextGuest;
+        NextGuestClickZone.Clicked += CallNextGuest;
 
-        guestInQueue = new List<Character>();
-        guestInBar = new List<Character>();
+        //guestInQueue = new List<Character>();
+        guestQueue= new Queue<Character>();
+        guestsInBarList = new List<Character>();
+        vipGuestsList= new List<Character>();
 
-        for (int i=0; i<guestsNumber; i++)
+        for (int i=0; i<guestsInQueue; i++)
         {
-            Character character = characterGenerator.Generate();
-            guestInQueue.Add(character);
+            Character generatedCharacter = characterGenerator.Generate();
+            AddGuestToVIPList(generatedCharacter);
+            // guestInQueue.Add(character);
+            guestQueue.Enqueue(generatedCharacter);
         }
     }
 
@@ -61,11 +70,15 @@ public class GameManager : MonoBehaviour
     {
         if (currentGuest == null)
         {
-            OnGuestShowUP?.Invoke(guestInQueue[0]);
-            currentGuest = guestInQueue[0];
+            if (guestQueue.TryDequeue(out currentGuest))
+            {
+                OnGuestShowUP?.Invoke(currentGuest);
+            }
+            // OnGuestShowUP?.Invoke(guestInQueue[0]);
+            //currentGuest = guestInQueue[0];
             Debug.Log("New Guest at the bar: " + currentGuest.characterSpecie.displayName);
             Debug.Log("Guest is:" + "Angry:" + currentGuest.isAngry + "Drunk:" + currentGuest.isDrunk);
-            Debug.Log("Ambiance influence: " + currentGuest.ambianceScore);
+            Debug.Log("Anarchy influence: " + currentGuest.anarchyScore);
         }        
     }
 
@@ -84,7 +97,7 @@ public class GameManager : MonoBehaviour
                 Debug.Log("GUEST REJECTED");
                 OnGuestRejected?.Invoke();
             }
-            guestInQueue.RemoveAt(0);
+            //guestInQueue.RemoveAt(0);
             currentGuest = null;
             AddGuestToQueue();
         }
@@ -92,28 +105,38 @@ public class GameManager : MonoBehaviour
 
     void AddGuestToBar(Character character)
     {
-        guestInBar.Add(character);
-        UpdateAmbianceLevel(character.ambianceScore);
-        Debug.Log(guestInBar.Count + "Guests in Bar");
+        guestsInBarList.Add(character);
+        UpdateAnarchyLevel(character.anarchyScore);
+        Debug.Log(guestsInBarList.Count + "Guests in Bar");
     }
 
     void AddGuestToQueue()
     {
         Character character = characterGenerator.Generate();
-        guestInQueue.Add(character);
+        guestQueue.Enqueue(character);
+        // guestInQueue.Add(character);
 
         // Animate new Sprite
     }
 
-    void UpdateAmbianceLevel(float ambianceScore)
+    void AddGuestToVIPList(Character character)
     {
-        m_ambiance += ambianceScore;
-        m_ambiance = m_ambiance > ambianceJaugeRange / 2 ? ambianceJaugeRange / 2 : m_ambiance;
-        m_ambiance = m_ambiance < -ambianceJaugeRange / 2 ? -ambianceJaugeRange / 2 : m_ambiance;
-        Debug.Log("Ambiance in bar: " + m_ambiance);
+        if (vipGuestsList.Count < 3)
+        {
+            float randfloat = UnityEngine.Random.Range(0f, 1f);
+            if(randfloat < guestIsVIPProba) { vipGuestsList.Add(character); }
+        }
+    }
+
+    void UpdateAnarchyLevel(float anarchyScore)
+    {
+        m_anarchy += anarchyScore;
+        m_anarchy = m_anarchy > maxAnarchy ? maxAnarchy : m_anarchy;
+        m_anarchy = m_anarchy < minAnarchy ? minAnarchy : m_anarchy;
+        Debug.Log("Anarchy in bar: " + m_anarchy);
 
         //Todo: temporaire
-        ambianceBar.GetComponent<AmbianceBar>().SetAmbianceLevel(m_ambiance*2);
+        anarchyBar.GetComponent<AnarchyBar>().SetAnarchyLevel(m_anarchy);
     }
 
     public void DebugCharacterDisplayState(bool characterDisplayState)
