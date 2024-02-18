@@ -96,6 +96,7 @@ public class DisplayScreen : MonoBehaviour
 
     private void AddVIPToDisplay(Character vip)
     {
+        Debug.Log("DISPLAYING VIP");
         vipGuestsListDisplay.vipFirstNamesList[vipCount].text = vip.firstName;
         vipGuestsListDisplay.vipLastNamesList[vipCount].text= vip.lastName;
         vipGuestsListDisplay.vipSpeciesList[vipCount].text = vip.characterSpecie.displayName;
