@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] AbstractCharacterGenerator characterGenerator;
     [SerializeField] int guestsInQueue;
     [SerializeField] [Range(0f, 1f)] float guestIsVIPProba;
-    [SerializeField] List<GameObject> gameObjects;
     [Space]
     [Header("Bar Settings")]
     [SerializeField] int maxGuests;
@@ -124,7 +123,11 @@ public class GameManager : MonoBehaviour
         if (vipGuestsList.Count < 3)
         {
             float randfloat = UnityEngine.Random.Range(0f, 1f);
-            if(randfloat < guestIsVIPProba) { vipGuestsList.Add(character); }
+            if(randfloat < guestIsVIPProba) 
+            { 
+                vipGuestsList.Add(character);
+                OnGuestIsVIP?.Invoke(character);
+            }
         }
     }
 

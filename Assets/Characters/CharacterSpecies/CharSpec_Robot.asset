@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 578784ef248a8d04db1323d1048d7c12, type: 3}
   m_Name: CharSpec_Robot
   m_EditorClassIdentifier: 
-  displayName: Robot
+  displayName: Octoboxoid
   firstNameList:
   - Unit 15X
   - Unit 35J
@@ -29,4 +29,8 @@ MonoBehaviour:
   - MOD-ULO
   - MOD-US
   - MOD-OR
-  spriteList: []
+  spriteList:
+  - {fileID: 21300000, guid: 0b55e91e7ae5d394091ebe007f570fe0, type: 3}
+  - {fileID: 21300000, guid: 6ee9fb60734066546a816d6381b5b128, type: 3}
+  - {fileID: 21300000, guid: d9df169d06a7982469720ded86bfdb5d, type: 3}
+  - {fileID: 21300000, guid: 9b812b7e7c71a8040ad8873473c3f9fc, type: 3}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 578784ef248a8d04db1323d1048d7c12, type: 3}
   m_Name: CharSpec_Humanoid
   m_EditorClassIdentifier: 
-  displayName: Humanoid
+  displayName: Bloboids
   firstNameList:
   - Robert
   - Rob
@@ -31,4 +31,10 @@ MonoBehaviour:
   - Mnoye
   - Yuhi
   - Lhaama
-  spriteList: []
+  spriteList:
+  - {fileID: 21300000, guid: 4e490f602f3ad834f9268c32040ca659, type: 3}
+  - {fileID: 21300000, guid: 997eefe2d7d1b0b4192c82b186814702, type: 3}
+  - {fileID: 21300000, guid: 5f24bf15b47909e4482a598b24eff0ac, type: 3}
+  - {fileID: 21300000, guid: 64e981f13d369794489854faa0c5440b, type: 3}
+  - {fileID: 21300000, guid: 4d6d9e66de3dd9347829bf671d3c76db, type: 3}
+  - {fileID: 21300000, guid: 692f2836f5a96fc409e87ababd35e797, type: 3}

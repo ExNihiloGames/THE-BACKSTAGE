@@ -53,20 +53,33 @@ public class TestResultDisplay
 }
 
 
+[System.Serializable]
+public class VIPGuestsListDisplay
+{
+    public List<TMP_Text> vipFirstNamesList = new List<TMP_Text>();
+    public List<TMP_Text> vipLastNamesList = new List<TMP_Text>();
+    public List<TMP_Text> vipSpeciesList = new List<TMP_Text>();
+    public List<Image> vipImageList = new List<Image>();
+}
+
+
 public class DisplayScreen : MonoBehaviour
 {
     public CardsList cardsList;
     public CardResultDisplay cardResultDisplay;
     public TestResultDisplay testResultDisplay;
+    public VIPGuestsListDisplay vipGuestsListDisplay;
 
     public TMP_Text dateTextValue;
     private DialogManager dialogManager;
+    private int vipCount;
 
     private void Start()
     {
         ItemSlot itemSlot = FindObjectOfType<ItemSlot>();
         CardReader cardReader = FindObjectOfType<CardReader>();
 
+        GameManager.OnGuestIsVIP += AddVIPToDisplay;
         GameManager.OnGuestAccepted += ClearGuestInfoScreen;
         GameManager.OnGuestRejected += ClearGuestInfoScreen;
         itemSlot.OnTestEquipmentRead += DisplayTestResult;
@@ -74,6 +87,15 @@ public class DisplayScreen : MonoBehaviour
 
         dialogManager = DialogManager.Instance;
         dateTextValue.text = Character.today.ToShortDateString();
+    }
+
+    private void AddVIPToDisplay(Character vip)
+    {
+        vipGuestsListDisplay.vipFirstNamesList[vipCount].text = vip.firstName;
+        vipGuestsListDisplay.vipLastNamesList[vipCount].text= vip.lastName;
+        vipGuestsListDisplay.vipSpeciesList[vipCount].text = vip.characterSpecie.displayName;
+        vipGuestsListDisplay.vipImageList[vipCount].sprite = vip.characterSprite;
+        vipCount++;
     }
 
     private void DisplayCard(object sender, OnCardReadEventArgs card)
